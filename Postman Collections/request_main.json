@@ -18,7 +18,7 @@
 					"mode": "raw",
 					"raw": "{\r\n    [Main_Branch_under_construction]\r\n}"
 				},
-				"url": "http://kafka-connect.prod.lkw-walter.com/connectors/dataops-aggtier_v5/this_is_the_main_branch_2"
+				"url": "http://kafka-connect.prod.lkw-walter.com/connectors/dataops-aggtier_v5/this_is_the_main_branch_two"
 			},
 			"response": []
 		}

@@ -1,0 +1,302 @@
+{
+  "id": "21a26ba0-0000-41a1-89e3-3beefa9e40db",
+  "overriddenSystemTimestamp": "2022-08-02T05:11:00Z",
+  "resourceMatchTypes": [
+    "AT_LEAST_ONE",
+    "ALL_OF"
+  ],
+  "availableResources": [
+    {
+      "id": "5dff98f7-1111-4e1a-bdbf-2ee4cc433dfc",
+      "geoCoordinate": {
+        "latitude": 30.0,
+        "longitude": 40.0
+      },
+      "availabilityTimestamp": "2022-08-01T22:22:00Z",
+      "timezone": "Europe/Vienna",
+      "driverStatus": {
+        "drivenTimeSinceLastBreakInSec": 0,
+        "drivenTimeDailyInSec": 0,
+        "drivenTimeWeeklyInSec": 0,
+        "currentBreakInSec": 0,
+        "todaysDrivingTimeInSec": 0
+      },
+      "nonAvailabilities": [],
+      "bookings": [
+        {
+          "bookingStatus": "BOOKED",
+          "planningOrderId": "baf5101a-3333-4431-8451-ac673349dae3"
+        }
+      ],
+      "attributes": [
+        {
+          "value": "100"
+        },
+        {
+          "value": "01001"
+        }
+      ]
+    },
+    {
+      "id": "b1efbacb-963a-1111-beb6-f916e88e6ebc",
+      "geoCoordinate": {
+        "latitude": 30.0,
+        "longitude": 40.0
+      },
+      "availabilityTimestamp": "2022-08-01T22:22:00Z",
+      "timezone": "Europe/Vienna",
+      "driverStatus": {
+        "drivenTimeSinceLastBreakInSec": 0,
+        "drivenTimeDailyInSec": 0,
+        "drivenTimeWeeklyInSec": 0,
+        "currentBreakInSec": 0,
+        "todaysDrivingTimeInSec": 0
+      },
+      "nonAvailabilities": [],
+      "bookings": [
+        {
+          "bookingStatus": "BOOKED",
+          "planningOrderId": "ee79bdb2-1784-3333-9b42-1ad6c2f4ee17",
+          "firstOnloadingPoint": {
+            "from_": "2022-08-04T08:00+01:00",
+            "to_": "2022-08-04T16:00+01:00"
+          },
+          "lastOffloadingPoint": {
+            "from_": "2022-08-05T08:00+01:00",
+            "to_": "2022-08-05T08:00+01:00"
+          }
+        }
+      ],
+      "attributes": [
+        {
+          "value": "100"
+        },
+        {
+          "value": "01001"
+        }
+      ]
+    }
+  ],
+  "planningOrders": [
+    {
+      "id": "baf5101a-3333-4431-8451-ac673349dae3",
+      "firstOnloadingPoint": {
+        "id": "83298a8c-4444-11ed-b939-0242ac120004",
+        "geoCoordinate": {
+          "latitude": 50.0,
+          "longitude": 60.0
+        },
+        "timezone": "Europe/Vienna",
+        "requestedTimeOfArrival": {
+          "from_": "2022-08-02T08:00+01:00",
+          "to_": "2022-08-02T16:00+01:00"
+        },
+        "loadingHours": [
+          {
+            "days": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "hours": {
+              "from_": 800,
+              "to_": 1600
+            }
+          }
+        ]
+      },
+      "lastOffloadingPoint": {
+        "id": "83298a8c-5555-11ed-b939-0242ac120014",
+        "geoCoordinate": {
+          "latitude": 55.0,
+          "longitude": 65.0
+        },
+        "timezone": "Europe/Vienna",
+        "requestedTimeOfArrival": {
+          "from_": "2022-08-03T08:00:00+01:00",
+          "to_": "2022-08-03T16:00:00+01:00"
+        },
+        "loadingHours": [
+          {
+            "days": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "hours": {
+              "from_": 800,
+              "to_": 1600
+            }
+          }
+        ]
+      },
+      "requirements": [
+        {
+          "value": "100"
+        },
+        {
+          "value": "01001"
+        }
+      ]
+    },
+    {
+      "id": "ee79bdb2-1784-3333-9b42-1ad6c2f4ee17",
+      "firstOnloadingPoint": {
+        "id": "729073a0-f5cc-4444-a353-6cb26021c012",
+        "geoCoordinate": {
+          "latitude": 52.0,
+          "longitude": 62.0
+        },
+        "timezone": "Europe/Vienna",
+        "requestedTimeOfArrival": {
+          "from_": "2022-08-08T08:00+01:00",
+          "to_": "2022-08-08T16:00+01:00"
+        },
+        "loadingHours": [
+          {
+            "days": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "hours": {
+              "from_": 800,
+              "to_": 1600
+            }
+          }
+        ]
+      },
+      "lastOffloadingPoint": {
+        "id": "cd3ae03a-1b70-5555-9b4f-14a6a4b9c3d8",
+        "geoCoordinate": {
+          "latitude": 32.0,
+          "longitude": 42.0
+        },
+        "timezone": "Europe/Vienna",
+        "requestedTimeOfArrival": {
+          "from_": "2022-08-09T08:00:00+01:00",
+          "to_": "2022-08-09T16:00:00+01:00"
+        },
+        "loadingHours": [
+          {
+            "days": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "hours": {
+              "from_": 800,
+              "to_": 1600
+            }
+          }
+        ]
+      },
+      "requirements": [
+        {
+          "value": "100"
+        },
+        {
+          "value": "01001"
+        }
+      ]
+    }
+  ],
+  "distanceMatrix": [
+    {
+      "geoCoordinate": {
+        "latitude": 30.0,
+        "longitude": 40.0
+      },
+      "distanceTo": [
+        {
+          "geoCoordinate": {
+            "latitude": 50.0,
+            "longitude": 60.0
+          },
+          "distances": 797.45,
+          "travelTimeInMin": 419
+        },
+        {
+          "geoCoordinate": {
+            "latitude": 55.0,
+            "longitude": 65.0
+          },
+          "distances": 823.16,
+          "travelTimeInMin": 329
+        },
+        {
+          "geoCoordinate": {
+            "latitude": 52.0,
+            "longitude": 62.0
+          },
+          "distances": 104.78,
+          "travelTimeInMin": 95
+        },
+        {
+          "geoCoordinate": {
+            "latitude": 32.0,
+            "longitude": 42.0
+          },
+          "distances": 830.85,
+          "travelTimeInMin": 295
+        }
+      ]
+    },
+    {
+      "geoCoordinate": {
+        "latitude": 30.0,
+        "longitude": 40.0
+      },
+      "distanceTo": [
+        {
+          "geoCoordinate": {
+            "latitude": 50.0,
+            "longitude": 60.0
+          },
+          "distances": 728.22,
+          "travelTimeInMin": 141
+        },
+        {
+          "geoCoordinate": {
+            "latitude": 55.0,
+            "longitude": 65.0
+          },
+          "distances": 362.81,
+          "travelTimeInMin": 224
+        },
+        {
+          "geoCoordinate": {
+            "latitude": 52.0,
+            "longitude": 62.0
+          },
+          "distances": 811.51,
+          "travelTimeInMin": 114
+        },
+        {
+          "geoCoordinate": {
+            "latitude": 32.0,
+            "longitude": 42.0
+          },
+          "distances": 338.81,
+          "travelTimeInMin": 382
+        }
+      ]
+    }
+  ]
+}

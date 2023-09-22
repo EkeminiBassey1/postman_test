@@ -4,6 +4,11 @@ on:
   push:
     branches:
       - main
+  workflow_call:
+    POSTMAN_API_KEY:
+      required: true
+    COLLECTION_ID:
+      required: true
 
 jobs:
   sync:

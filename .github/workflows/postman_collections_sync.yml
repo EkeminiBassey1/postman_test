@@ -1,4 +1,4 @@
-name: Postman Collection Sync
+name: Postman Collection Sync Main
 
 on:
   push:

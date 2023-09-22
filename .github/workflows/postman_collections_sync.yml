@@ -27,4 +27,5 @@ jobs:
           POSTMAN_API_KEY=${{ secrets.POSTMAN_COLLECTION_API_KEY }}
           COLLECTION_ID=${{ secrets.COLLECTION_ID }}
 
-          newman run https://api.postman.com/collections/$COLLECTION_ID/$POSTMAN_API_KEY
+          newman run https://api.postman.com/collections/$COLLECTION_ID \
+            --env-var POSTMAN_API_KEY=$POSTMAN_API_KEY

@@ -24,7 +24,7 @@ jobs:
       - name: Run Postman Collection Sync
         run: |
           # Replace with your Postman API Key and Collection ID
-          POSTMAN_API_KEY=${{ secrets.POSTMAN_COLLECTION_TESTING_PHASE }}
+          POSTMAN_API_KEY=${{ secrets.POSTMAN_COLLECTION_API_KEY }}
           COLLECTION_ID=${{ secrets.COLLECTION_ID }}
 
           newman run https://api.getpostman.com/collections/$COLLECTION_ID \

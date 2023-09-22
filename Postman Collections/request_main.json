@@ -22,5 +22,31 @@
 			},
 			"response": []
 		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": {}
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "9e6b30c3-ab58-46d3-bc07-e26eae605408",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "45f4db53-1baa-43a9-928e-04ebbe0a9ec7",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
 	]
 }

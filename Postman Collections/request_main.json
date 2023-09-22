@@ -16,9 +16,14 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    [Main_Branch_under_construction]\r\n    [Is_something_happening?]\r\n    [Is_something_happening? Still?]\r\n}"
+					"raw": "{\r\n    \"archive\": false, \r\n    \"routenpunkte\": [\r\n    {\r\n        \"typ\": \"WegPunkt\", \r\n        \"koordinaten\":{\r\n            \"x\": \"16.38932804\", \r\n            \"y\": \"48.21311454\"\r\n        }\r\n    }, \r\n    {\r\n        \"typ\": \"WegPunkt\", \r\n        \"koordinaten\": {\r\n            \"x\": \"13.3945134\", \r\n            \"y\": \"52.50508962\"\r\n        }\r\n    }\r\n    ], \r\n    \"orgeinheit\": 8301, \r\n    \"maxResults\": 1, \r\n    \"laendersperren\": null, \r\n    \"manoeuvres\": false, \r\n    \"routensegmente\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
 				},
-				"url": "http://kafka-connect.prod.lkw-walter.com/connectors/dataops-aggtier_v5/this_is_the_main_branch_two"
+				"url": "http://rout-routes-cmp.prod.lkw-walter.com/gisl-routes-cmp/api/calculateWalterRoute"
 			},
 			"response": []
 		}

@@ -1,0 +1,32 @@
+name: Postman Collection Sync
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm install -g newman
+
+      - name: Run Postman Collection Sync
+        run: |
+          # Replace with your Postman API Key and Collection ID
+          POSTMAN_API_KEY=${{ secrets.POSTMAN_COLLECTION_TESTING_PHASE }}
+          COLLECTION_ID=<28491137-78dd1021-0e04-4df1-949e-7f8276e9fc1a>
+
+          newman run https://api.getpostman.com/collections/$COLLECTION_ID \
+            --env-var POSTMAN_API_KEY=$POSTMAN_API_KEY
+

@@ -25,7 +25,7 @@ jobs:
         run: |
           # Replace with your Postman API Key and Collection ID
           POSTMAN_API_KEY=${{ secrets.POSTMAN_COLLECTION_TESTING_PHASE }}
-          COLLECTION_ID=<28491137-78dd1021-0e04-4df1-949e-7f8276e9fc1a>
+          COLLECTION_ID=${{ secrets.COLLECTION_ID }}
 
           newman run https://api.getpostman.com/collections/$COLLECTION_ID \
             --env-var POSTMAN_API_KEY=$POSTMAN_API_KEY

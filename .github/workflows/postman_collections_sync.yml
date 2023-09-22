@@ -23,9 +23,9 @@ jobs:
 
       - name: Run Postman Collection Sync
         run: |
-          POSTMAN_API_KEY=${{ secrets.POSTMAN_COLLECTION_API_KEY }}
+          POSTMAN_API_KEY=${{ secrets.POSTMAN_API_KEY }}
           COLLECTION_ID=${{ secrets.COLLECTION_ID }}
           echo "This is postman key: $POSTMAN_API_KEY"
           
-          #newman run https://api.postman.com/collections/28491137-e4437157-8737-41bd-b2f8-fe777cdf8c68?access_key=PMAT-01HAY2PCAGT9J1ET14QGXFYNKW
-            #--env-var POSTMAN_API_KEY=$POSTMAN_API_KEY
+          #newman run https://api.postman.com/collections/$COLLECTION_ID?access_key=\
+            --env-var POSTMAN_API_KEY=$POSTMAN_API_KEY

@@ -21,8 +21,8 @@ jobs:
       - name: Install Newman
         run: npm install -g newman
 
-      - name: Install an Alternative Conversion Tool (Replace with a valid package)
-        run: npm install -g valid-package-name
+      - name: Install postman-to-openapi
+        run: npm install -g postman-to-openapi
 
       - name: Download Postman Collection
         run: |

@@ -67,37 +67,13 @@
 				"url": "Another_main"
 			},
 			"response": []
-		},
-		{
-			"name": "sadadadadasd",
-			"id": "216bcbe9-2f39-4519-8850-6a5dc2d4c68b",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "dasdadadasdas"
-				},
-				"url": "sadadadadasd"
-			},
-			"response": []
 		}
 	],
-	"auth": {
-		"type": "apikey",
-		"apikey": {
-			"value": "Main",
-			"key": "PMAK-65117002c6cdd0004326666a-92fd73c54fda09337a333a777a84fdbf87"
-		}
-	},
 	"event": [
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "a8670b87-7818-4419-bd28-949a85ba9da3",
+				"id": "ed8a5bad-ae40-45b6-b205-93ec8b935cf3",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -107,7 +83,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "f6f06ee8-7f28-4d93-9adc-2ca47e2a0c41",
+				"id": "d45dda4e-048b-413a-a4b3-5e30f37b0c4c",
 				"type": "text/javascript",
 				"exec": [
 					""

@@ -1,7 +1,9 @@
-name: Manual Download Postman Collection
+name: Update Postman Collection
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
   update-collection:
@@ -16,27 +18,29 @@ jobs:
         with:
           node-version: 16
 
-      - name: Install Newman and openapi2postmanv2
-        run: |
-          npm install -g newman
-          npm install -g openapi2postmanv2
+      - name: Install Newman
+        run: npm install -g newman
 
       - name: Download Postman Collection
         run: |
-          POSTMAN_API_KEY=${{ secrets.POSTMAN_API_KEY_TEST }}
-          COLLECTION_ID=${{ secrets.COLLECTION_ID_TEST }}
-          curl -L "https://api.postman.com/collections/$COLLECTION_ID?access_key=$POSTMAN_API_KEY"
+          POSTMAN_API_KEY=${{ secrets.POSTMAN_API_KEY_MAIN }}
+          COLLECTION_ID=${{ secrets.COLLECTION_ID_MAIN }}
+          curl -L "https://api.postman.com/collections/$COLLECTION_ID" \
+            -H "X-Api-Key: $POSTMAN_API_KEY" \
             -o collection.json
 
-      - name: Convert Postman Collection to YAML
-        run: openapi2postmanv2 convert -i collection.json -o collection.yaml -f yaml
+      - name: Convert Postman Collection to JSON
+        run: |
+          newman convert collection.json -o collection.json.postman
+          mv collection.json.postman collection.json
 
       - name: Commit and Push to GitHub
         run: |
+          git pull origin main
+          git add collection.json
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
-          git add collection.yaml
-          git commit -m "Update Postman Collection as YAML"
-          git push
+          git commit -m "Update Postman Collection as JSON"
+          git push https://${{ secrets.GH_PAT }}@github.com/${{ github.repository }}.git HEAD:${{ github.ref }} --follow-tags --no-verify
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+          GH_PAT: ${{ secrets.GH_PAT }}

@@ -49,6 +49,7 @@ jobs:
       - name: Commit and Push to GitHub
         run: |
           git pull origin main
+          git add collection.json
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
           git add collection.yaml

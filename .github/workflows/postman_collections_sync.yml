@@ -1,7 +1,7 @@
 name: Manual Download Postman Collection
 
 on:
-  workflow_dispatch:  # This event allows manual triggering
+  workflow_dispatch:
 
 jobs:
   download-collection:

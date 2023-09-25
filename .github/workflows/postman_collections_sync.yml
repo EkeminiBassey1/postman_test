@@ -1,9 +1,7 @@
 name: Update Postman Collection
 
 on:
-  push:
-    branches:
-      - test
+  workflow_dispatch:
 
 jobs:
   update-collection:

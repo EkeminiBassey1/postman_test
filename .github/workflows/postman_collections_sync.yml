@@ -1,9 +1,10 @@
 name: Download Postman Collection
 
 on:
-  push:
-    branches:
-      - main
+  workflow_run:
+    workflows: ["Download Postman Collection"]
+    types:
+      - completed
 
 jobs:
   download-collection:
@@ -26,7 +27,8 @@ jobs:
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
           git add collection.json
-          git commit -m "Add Postman Collection"
+          git commit -m "Update Postman Collection"
+          git pull origin main
           git push origin main
         env:
           GH_PAT: ${{ secrets.GH_PAT }}

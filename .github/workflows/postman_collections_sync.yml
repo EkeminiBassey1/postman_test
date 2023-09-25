@@ -1,8 +1,7 @@
-name: Download Postman Collection
+name: Manual Download Postman Collection
 
 on:
-  workflow_dispatch:
-
+  workflow_dispatch:  # This event allows manual triggering
 
 jobs:
   download-collection:
@@ -20,12 +19,16 @@ jobs:
             -H "X-Api-Key: $POSTMAN_API_KEY" \
             -o collection.json
 
+      - name: Extract Request Data
+        run: |
+          jq '.item[].request' collection.json > request.json
+
       - name: Commit and Push to GitHub
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
-          git add collection.json
-          git commit -m "Update Postman Collection"
+          git add request.json
+          git commit -m "Add Postman Request Data"
           git pull origin main
           git push origin main
         env:

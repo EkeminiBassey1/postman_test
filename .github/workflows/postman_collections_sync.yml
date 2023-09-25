@@ -18,13 +18,15 @@ jobs:
         with:
           node-version: 14
 
-      - name: Install Newman and openapi2postmanv2
-        run: |
-          npm install -g newman
-          npm install -g openapi2postmanv2
+      - name: Install Newman
+        run: npm install -g newman
+
+      - name: Install an Alternative Conversion Tool (Replace with a valid package)
+        run: npm install -g valid-package-name
 
       - name: Download Postman Collection
         run: |
+          # Download your Postman collection as JSON using Postman API
           POSTMAN_API_KEY=${{ secrets.POSTMAN_API_KEY_TEST }}
           COLLECTION_ID=${{ secrets.COLLECTION_ID_TEST }}
           curl -L "https://api.postman.com/collections/$COLLECTION_ID" \
@@ -32,7 +34,10 @@ jobs:
             -o collection.json
 
       - name: Convert Postman Collection to YAML
-        run: openapi2postmanv2 convert -i collection.json -o collection.yaml -f yaml
+        run: |
+          # Replace the following command with the appropriate conversion command for your chosen package
+          # Example: valid-package-name convert -i collection.json -o collection.yaml
+          echo "Conversion command goes here"
 
       - name: Commit and Push to GitHub
         run: |

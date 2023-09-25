@@ -36,11 +36,9 @@ jobs:
       - name: Check if collection.yaml exists
         id: check-collection
         run: |
-          if [ -f collection.yaml ]; then
-            echo "::set-output name=exists::true"
-          else
-            echo "::set-output name=exists::false"
-            fi
+          if [ ! -f collection.yaml ]; then
+            touch collection.yaml
+          fi
 
       - name: Convert Postman Collection to YAML
         run: |

@@ -67,6 +67,23 @@
 				"url": "Another_main"
 			},
 			"response": []
+		},
+		{
+			"name": "sadadadadasd",
+			"id": "216bcbe9-2f39-4519-8850-6a5dc2d4c68b",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "dasdadadasdas"
+				},
+				"url": "sadadadadasd"
+			},
+			"response": []
 		}
 	],
 	"auth": {

@@ -52,5 +52,7 @@ jobs:
           git config user.email "actions@github.com"
           git add collection.yaml
           git commit -m "Update Postman Collection as YAML"
-          git push https://github.com/${{ github.repository }}.git HEAD:${{ github.ref }} --follow-tags --no-verify --token ${{ secrets.GH_PAT }}
-
+          # Use the PAT in the URL to authenticate
+          git push https://<PAT>@github.com/${{ github.repository }}.git HEAD:${{ github.ref }} --follow-tags --no-verify
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

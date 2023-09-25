@@ -1,1 +1,6 @@
-{"error":{"name":"AuthenticationError","message":"Invalid API Key. Every request requires a valid API Key to be sent."}}
+<html>
+<head><title>502 Bad Gateway</title></head>
+<body>
+<center><h1>502 Bad Gateway</h1></center>
+</body>
+</html>

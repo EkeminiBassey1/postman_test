@@ -13,8 +13,8 @@ jobs:
 
       - name: Download Postman Collection
         run: |
-          POSTMAN_API_KEY=${{ secrets.POSTMAN_API_KEY_MAIN }}
-          COLLECTION_ID=${{ secrets.COLLECTION_ID_MAIN }}
+          POSTMAN_API_KEY=${{ secrets.POSTMAN_API_KEY_TEST }}
+          COLLECTION_ID=${{ secrets.COLLECTION_ID_TEST }}
           curl -L "https://api.postman.com/collections/$COLLECTION_ID?access_key=$POSTMAN_API_KEY" -o api_response.json
 
       - name: Commit and push JSON file

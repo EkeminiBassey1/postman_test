@@ -1,25 +1,20 @@
-name: Save API Response to JSON
+name: Manual Download Postman Collection
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
 
 jobs:
-  save_api_response:
+  download-collection:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up environment variables
+      - name: Download Postman Collection
         run: |
-          export COLLECTION_ID=${{ secrets.COLLECTION_ID_MAIN }}
-          export POSTMAN_API_KEY=${{ secrets.POSTMAN_API_KEY_MAIN }}
-
-      - name: Make API request and save response to JSON file
-        run: |
+          POSTMAN_API_KEY=${{ secrets.POSTMAN_API_KEY_MAIN }}
+          COLLECTION_ID=${{ secrets.COLLECTION_ID_MAIN }}
           curl -L "https://api.postman.com/collections/$COLLECTION_ID?access_key=$POSTMAN_API_KEY" -o api_response.json
 
       - name: Commit and push JSON file
@@ -29,3 +24,5 @@ jobs:
           git add api_response.json
           git commit -m "Add API response JSON"
           git push
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}

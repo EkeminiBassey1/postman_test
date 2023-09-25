@@ -71,13 +71,16 @@
 	],
 	"auth": {
 		"type": "apikey",
-		"apikey": {}
+		"apikey": {
+			"value": "Main",
+			"key": "PMAK-65117002c6cdd0004326666a-92fd73c54fda09337a333a777a84fdbf87"
+		}
 	},
 	"event": [
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "9e6b30c3-ab58-46d3-bc07-e26eae605408",
+				"id": "a8670b87-7818-4419-bd28-949a85ba9da3",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -87,7 +90,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "45f4db53-1baa-43a9-928e-04ebbe0a9ec7",
+				"id": "f6f06ee8-7f28-4d93-9adc-2ca47e2a0c41",
 				"type": "text/javascript",
 				"exec": [
 					""

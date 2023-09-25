@@ -1,10 +1,8 @@
 name: Download Postman Collection
 
 on:
-  workflow_run:
-    workflows: ["Download Postman Collection"]
-    types:
-      - completed
+  workflow_dispatch:
+
 
 jobs:
   download-collection:
@@ -16,8 +14,8 @@ jobs:
 
       - name: Download Postman Collection
         run: |
-          POSTMAN_API_KEY=${{ secrets.POSTMAN_GITHUB_PAT }}
-          COLLECTION_ID="YOUR_COLLECTION_ID" # Replace with your Postman collection ID
+          POSTMAN_API_KEY=${{ secrets.POSTMAN_API_KEY_MAIN }}
+          COLLECTION_ID=${{ secrets.COLLECTION_ID_MAIN }}
           curl -L "https://api.postman.com/collections/$COLLECTION_ID" \
             -H "X-Api-Key: $POSTMAN_API_KEY" \
             -o collection.json

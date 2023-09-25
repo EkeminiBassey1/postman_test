@@ -21,8 +21,8 @@ jobs:
       - name: Install Newman
         run: npm install -g newman
 
-      - name: Install postman-to-openapi
-        run: npm install -g postman-to-openapi
+      - name: Install newman-to-openapi
+        run: npm install -g newman-to-openapi
 
       - name: Download Postman Collection
         run: |
@@ -34,8 +34,7 @@ jobs:
             -o collection.json
 
       - name: Convert Postman Collection to YAML
-        run: |
-          newman-to-openapi convert -i collection.json -o collection.yaml
+        run: newman-to-openapi convert -i collection.json -o collection.yaml
 
       - name: Commit and Push to GitHub
         run: |

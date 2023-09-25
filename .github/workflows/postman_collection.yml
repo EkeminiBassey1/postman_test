@@ -1,4 +1,4 @@
-name: Get Post collection test
+name: Manual Download Postman Collection Test
 
 on:
   workflow_dispatch:

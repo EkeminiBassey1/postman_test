@@ -33,6 +33,15 @@ jobs:
             -H "X-Api-Key: $POSTMAN_API_KEY" \
             -o collection.json
 
+      - name: Check if collection.yaml exists
+          id: check-collection
+          run: |
+            if [ -f collection.yaml ]; then
+              echo "::set-output name=exists::true"
+            else
+              echo "::set-output name=exists::false"
+            fi
+
       - name: Convert Postman Collection to YAML
         run: |
           # Replace the following command with the appropriate conversion command for your chosen package

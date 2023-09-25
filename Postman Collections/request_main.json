@@ -33,6 +33,40 @@
 				"url": "https://planning-algorithm.test.lkw-walter.com/planning-algorithm/v5/api/planningproposals"
 			},
 			"response": []
+		},
+		{
+			"name": "main_main_main",
+			"id": "8fa424d1-d331-440b-8b3b-b4a938a6087b",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    [MAIN]\r\n}"
+				},
+				"url": "main_main_main"
+			},
+			"response": []
+		},
+		{
+			"name": "Another_main",
+			"id": "aaf4c15f-455a-4b15-9ab7-2d66695a473b",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    [MAAAAAAAIN!!!!]\r\n}"
+				},
+				"url": "Another_main"
+			},
+			"response": []
 		}
 	],
 	"auth": {

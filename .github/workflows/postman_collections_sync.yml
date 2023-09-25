@@ -15,7 +15,7 @@ jobs:
         run: |
           POSTMAN_API_KEY=${{ secrets.POSTMAN_API_KEY_MAIN }}
           COLLECTION_ID=${{ secrets.COLLECTION_ID_MAIN }}
-          curl -L "https://api.postman.com/collections/$COLLECTION_ID?access_key=$POSTMAN_API_KEY
+          curl -L "https://api.postman.com/collections/$COLLECTION_ID?access_key=$POSTMAN_API_KEY"
 
       - name: Extract Request Data
         run: |

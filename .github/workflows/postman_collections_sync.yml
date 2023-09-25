@@ -1,4 +1,4 @@
-name: Update Postman Collection
+name: Download Postman Collection
 
 on:
   push:
@@ -6,47 +6,27 @@ on:
       - main
 
 jobs:
-  update-collection:
+  download-collection:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Install Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: 16
-
-      - name: Clone newman-to-openapi repository
-        run: git clone https://github.com/Dannyzen/newman-to-openapi.git
-
-      - name: Build newman-to-openapi
-        run: |
-          cd newman-to-openapi
-          npm install
-          npm run build
-          npm link
-
       - name: Download Postman Collection
         run: |
-          # Download your Postman collection as JSON using Postman API
-          POSTMAN_API_KEY=${{ secrets.POSTMAN_API_KEY_MAIN }}
-          COLLECTION_ID=${{ secrets.COLLECTION_ID_MAIN }}
+          POSTMAN_API_KEY=${{ secrets.POSTMAN_GITHUB_PAT }}
+          COLLECTION_ID="YOUR_COLLECTION_ID" # Replace with your Postman collection ID
           curl -L "https://api.postman.com/collections/$COLLECTION_ID" \
             -H "X-Api-Key: $POSTMAN_API_KEY" \
             -o collection.json
-
-      - name: Convert Postman Collection to YAML
-        run: |
-          newman-to-openapi convert -i collection.json -o collection.yaml
 
       - name: Commit and Push to GitHub
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
-          git add collection.yaml
-          git commit -m "Update Postman Collection as YAML"
+          git add collection.json
+          git commit -m "Add Postman Collection"
           git push origin main
         env:
           GH_PAT: ${{ secrets.GH_PAT }}

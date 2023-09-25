@@ -28,17 +28,16 @@ jobs:
             -o collection.json
 
       - name: Convert Postman Collection to JSON
-        run: |
-          newman convert collection.json -o collection.json.postman
-          mv collection.json.postman collection.json
+          run: |
+            newman convert collection.json -o collection.json
 
       - name: Commit and Push to GitHub
-        run: |
-          git pull origin main
-          git add collection.json
-          git config user.name "GitHub Actions"
-          git config user.email "actions@github.com"
-          git commit -m "Update Postman Collection as JSON"
-          git push https://${{ secrets.GH_PAT }}@github.com/${{ github.repository }}.git HEAD:${{ github.ref }} --follow-tags --no-verify
+          run: |
+            git pull origin main
+            git add collection.json
+            git config user.name "GitHub Actions"
+            git config user.email "actions@github.com"
+            git commit -m "Update Postman Collection as JSON"
+            git push https://${{ secrets.GH_PAT }}@github.com/${{ github.repository }}.git HEAD:${{ github.ref }} --follow-tags --no-verify
         env:
           GH_PAT: ${{ secrets.GH_PAT }}

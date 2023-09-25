@@ -18,11 +18,15 @@ jobs:
         with:
           node-version: 16
 
-      - name: Install Newman
-        run: npm install -g newman
+      - name: Clone newman-to-openapi repository
+        run: git clone https://github.com/Dannyzen/newman-to-openapi.git
 
-      - name: Install newman-to-openapi
-        run: npm install -g newman-to-openapi
+      - name: Build newman-to-openapi
+        run: |
+          cd newman-to-openapi
+          npm install
+          npm run build
+          npm link
 
       - name: Download Postman Collection
         run: |
@@ -34,7 +38,8 @@ jobs:
             -o collection.json
 
       - name: Convert Postman Collection to YAML
-        run: newman-to-openapi convert -i collection.json -o collection.yaml
+        run: |
+          newman-to-openapi convert -i collection.json -o collection.yaml
 
       - name: Commit and Push to GitHub
         run: |

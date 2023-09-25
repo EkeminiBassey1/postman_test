@@ -67,6 +67,19 @@
 				"url": "Another_main"
 			},
 			"response": []
+		},
+		{
+			"name": "testing",
+			"id": "458fd839-2b14-4e65-bf2a-1ed491018b7b",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://kafka-connect.prod.lkw-walter.com/connectors/dataops-aggtier_v5/config/this_is_the_test_branch"
+			},
+			"response": []
 		}
 	],
 	"event": [

@@ -25,8 +25,7 @@ jobs:
         run: |
           POSTMAN_API_KEY=${{ secrets.POSTMAN_API_KEY_TEST }}
           COLLECTION_ID=${{ secrets.COLLECTION_ID_TEST }}
-          curl -L "https://api.postman.com/collections/$COLLECTION_ID" \
-            -H "X-Api-Key: $POSTMAN_API_KEY" \
+          curl -L "https://api.postman.com/collections/$COLLECTION_ID?access_key=$POSTMAN_API_KEY"
             -o collection.json
 
       - name: Convert Postman Collection to YAML

@@ -1,10 +1,10 @@
-name: Update Postman Collection
+name: Manual Download Postman Collection
 
 on:
   workflow_dispatch:
 
 jobs:
-  update-collection:
+  download-collection:
     runs-on: ubuntu-latest
 
     steps:

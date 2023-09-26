@@ -17,12 +17,29 @@ jobs:
           COLLECTION_ID=${{ secrets.COLLECTION_ID_TEST }}
           curl -L "https://api.postman.com/collections/$COLLECTION_ID?access_key=$POSTMAN_API_KEY" -o api_response.json
 
-      - name: Commit and push JSON file
+      - name: Check if api_response.json is empty
+        run: |
+          if [ ! -s api_response.json ]; then
+            echo "api_response.json is empty or does not contain valid JSON data."
+            exit 1
+          fi
+        shell: bash
+
+      - name: Create Request Files
+        run: |
+          jq -r '.item[] | select(.request) | .request' api_response.json | while read -r request; do
+            request_name=$(echo "$request" | jq -r '.name')
+            request_file="${request_name// /_}.json"
+            echo "$request" > "$request_file"
+          done
+        shell: bash
+
+      - name: Commit and push Request Files
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add api_response.json
-          git commit -m "Add API response JSON"
+          git add *.json
+          git commit -m "Add individual request JSON files"
           git push
         env:
           GH_PAT: ${{ secrets.GH_PAT }}

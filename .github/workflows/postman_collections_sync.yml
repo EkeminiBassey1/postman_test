@@ -26,3 +26,32 @@ jobs:
           git push
         env:
           GH_PAT: ${{ secrets.GH_PAT }}
+
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Read and Separate Requests
+        run: |
+          # Install jq if it's not already available
+          if ! command -v jq &> /dev/null; then
+            sudo apt-get update
+            sudo apt-get install jq -y
+          fi
+
+          # Read and process each request in api_response.json
+          jq -c '.requests[]' api_response.json | while read -r request; do
+            request_name=$(echo "$request" | jq -r '.name')
+            request_file="${request_name// /_}.json"
+            echo "$request" > "$request_file"
+          done
+        shell: bash
+
+      - name: Commit and Push Request Files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add *.json
+          git commit -m "Add individual request JSON files"
+          git push
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}

@@ -26,7 +26,7 @@ jobs:
       - name: Remove Trailing Whitespace from JSON
         run: |
           # Use jq to filter out trailing whitespace and empty lines
-          jq -s 'map(select(. != ""))' api_response.json > formatted_api_response.json
+          jq -c . api_response.json | sed -e ':a' -e '/^\s*$/{$d;N;ba' -e '}' > formatted_api_response.json
           
           # Move the formatted file back to the original file
           mv formatted_api_response.json api_response.json

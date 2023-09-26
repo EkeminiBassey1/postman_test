@@ -302,9 +302,9 @@
             "raw": "    qwertzuiopüasdfghjklöäyxcvbnm,."
           },
           "url": {
-            "raw": "asdfghjklö",
+            "raw": "asdfghjklösdfghjklöasdfghjklösdfghjklöasdfghjklösdfghjklöasdfghjklösdfghjklö",
             "host": [
-              "asdfghjklö"
+              "asdfghjklösdfghjklöasdfghjklösdfghjklöasdfghjklösdfghjklöasdfghjklösdfghjklö"
             ]
           }
         },

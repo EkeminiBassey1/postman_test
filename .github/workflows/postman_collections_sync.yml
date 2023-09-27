@@ -59,9 +59,9 @@ jobs:
       - name: Commit and Push if Folder was Created
         if: ${{ steps.create-folder.outputs.changed == 'true' }}
         run: |
-          git config user.name "Your Name"
-          git config user.email "your-email@example.com"
-          git add "your-folder-name"
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add "request_test_folder"
           git commit -m "Create folder if it doesn't exist"
           git push
         

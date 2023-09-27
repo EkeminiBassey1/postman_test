@@ -48,4 +48,4 @@ jobs:
 
       - name: Execute Python Script
         run: |
-          python main_file_folder_manager.py
+          python src/postman_collab/request_folder/main_file_folder_manager.py

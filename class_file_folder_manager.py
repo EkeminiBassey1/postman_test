@@ -10,6 +10,9 @@ class FolderAndFileManager:
 
     def get_api_request_file(self):
         json_data = importlib.resources.read_text(file_api, 'api_response.json')
+
+        print(json_data)
+
         data_dict = json.loads(json_data)
         return data_dict
 

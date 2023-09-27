@@ -35,18 +35,17 @@ jobs:
           GH_PAT: ${{ secrets.GH_PAT }}
 
   job2:
-    run_python_script:
-      runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
 
-      steps:
-        - name: Checkout code
-          uses: actions/checkout@v2
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-        - name: Set up Python
-          uses: actions/setup-python@v2
-          with:
-            python-version: 3.10
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.10
 
-        - name: Execute Python Script
-          run: |
-            python src/postman_collab/request_folder/main_file_folder_manager.py
+      - name: Execute Python Script
+        run: |
+          python src/postman_collab/request_folder/main_file_folder_manager.py

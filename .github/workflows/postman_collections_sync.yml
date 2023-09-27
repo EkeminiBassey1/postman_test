@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  job1:
+  download-collection-postman:
     runs-on: ubuntu-latest
 
     steps:
@@ -34,7 +34,8 @@ jobs:
         env:
           GH_PAT: ${{ secrets.GH_PAT }}
 
-  job2:
+  execute-python-script:
+    needs: download-collection-postman
     runs-on: ubuntu-latest
 
     steps:

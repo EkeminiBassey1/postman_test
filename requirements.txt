@@ -1,0 +1,22 @@
+# requirements.txt can be used to pin down concrete dependencies
+# and repository locations.
+
+# this allows companies (like LKWW) to host their own package mirrors,
+# and things will just work out-of-the-box.
+# see also: https://caremad.io/posts/2013/07/remove_brackets_and_call_setup-vs-requirement/
+
+
+# so if you are developing a library, then you can write something like this:
+# your pip install -r requirements.txt will work just as before.
+# It will first install the library located at the file path .
+# and then move on to its abstract dependencies, combining them with
+# its --index-url option and turning them into concrete dependencies and
+# installing them.
+
+# this also works, if you want to use your own unreleased package version
+# to implement a generic dependency declared in remove_brackets_and_call_setup.py
+
+# example of a local package location
+# --index-url https://pypi.python.org/simple/
+
+--editable '.[all]'

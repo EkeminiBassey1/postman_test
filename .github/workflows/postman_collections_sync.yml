@@ -5,54 +5,51 @@ on:
 
 jobs:
   job1:
-    download-collection:
-      runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
 
-      steps:
-        - name: Checkout code
-          uses: actions/checkout@v2
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-        - name: Download Postman Collection
-          run: |
-            POSTMAN_API_KEY=${{ secrets.POSTMAN_API_KEY_TEST }}
-            COLLECTION_ID=${{ secrets.COLLECTION_ID_TEST }}
-            mkdir -p utils/api_json
-            curl -L "https://api.postman.com/collections/$COLLECTION_ID?access_key=$POSTMAN_API_KEY" -o utils/api_json/api_response.json
+      - name: Download Postman Collection
+        run: |
+          POSTMAN_API_KEY=${{ secrets.POSTMAN_API_KEY_TEST }}
+          COLLECTION_ID=${{ secrets.COLLECTION_ID_TEST }}
+          mkdir -p utils/api_json
+          curl -L "https://api.postman.com/collections/$COLLECTION_ID?access_key=$POSTMAN_API_KEY" -o utils/api_json/api_response.json
 
-        - name: Format JSON
-          run: |
-            cd utils/api_json
-            jq . api_response.json > formatted_api_response.json
-            mv formatted_api_response.json api_response.json
-          shell: bash
+      - name: Format JSON
+        run: |
+          cd utils/api_json
+          jq . api_response.json > formatted_api_response.json
+          mv formatted_api_response.json api_response.json
 
-        - name: Commit and push JSON file
-          run: |
-            git config --local user.email "action@github.com"
-            git config --local user.name "GitHub Action"
-            git add utils/api_json/api_response.json
-            git commit -m "Add API response JSON"
-            git push
-          env:
-            GH_PAT: ${{ secrets.GH_PAT }}
+      - name: Commit and push JSON file
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add utils/api_json/api_response.json
+          git commit -m "Add API response JSON"
+          git push
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
 
   job2:
-    include_folder:
-      runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
 
-      steps:
-        - name: Checkout code
-          uses: actions/checkout@v2
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-        - name: List the contents of the folder
-          run: |
-            ls -R src
+      - name: List the contents of the folder
+        run: |
+          ls -R src
 
-        - name: Set up Python
-          uses: actions/setup-python@v2
-          with:
-            python-version: 3.x
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
 
-        - name: Execute Python Script
-          run: |
-            python src/postman_collab/request_folder/main_file_folder_manager.py
+      - name: Execute Python Script
+        run: |
+          python src/postman_collab/request_folder/main_file_folder_manager.py

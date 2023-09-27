@@ -1,7 +1,7 @@
 import json
 import os
 import importlib.resources
-import utils.api_json as file_api
+import src.postman_collab.utils.api_json as file_api
 
 
 class FolderAndFileManager:

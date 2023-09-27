@@ -35,8 +35,6 @@ install_requires = [
     "requests",
     "fire",
     "kfp",
-    "geoutils@git+https://github.com/WALTER-GROUP/geoutils.git@v2.6.2-logging-empty",
-    "pipesql @ git+https://github.com/WALTER-GROUP/pipesql@main",
 ]
 # to install your package for development, you run `pip install -e '.[dev]'`.
 # This installs all the regular required packages and those listed in the dev

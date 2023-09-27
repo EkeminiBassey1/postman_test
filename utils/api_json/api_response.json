@@ -4,7 +4,7 @@
       "_postman_id": "78dd1021-0e04-4df1-949e-7f8276e9fc1a",
       "name": "Requests_test",
       "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-      "updatedAt": "2023-09-27T09:02:28.000Z",
+      "updatedAt": "2023-09-27T11:35:45.000Z",
       "uid": "28491137-78dd1021-0e04-4df1-949e-7f8276e9fc1a"
     },
     "item": [
@@ -333,6 +333,29 @@
         },
         "response": [],
         "uid": "28491137-1a6a4bc6-25ba-4ceb-ab84-a0cbddb6b6ed"
+      },
+      {
+        "name": "esting_tis",
+        "id": "6f1c331c-0097-43cd-a481-33a84267d7d1",
+        "protocolProfileBehavior": {
+          "disableBodyPruning": true
+        },
+        "request": {
+          "method": "GET",
+          "header": [],
+          "body": {
+            "mode": "raw",
+            "raw": "[Lets go]"
+          },
+          "url": {
+            "raw": "esting_tis",
+            "host": [
+              "esting_tis"
+            ]
+          }
+        },
+        "response": [],
+        "uid": "28491137-6f1c331c-0097-43cd-a481-33a84267d7d1"
       }
     ]
   }

@@ -6,7 +6,7 @@ import utils.api_json as file_api
 
 class FolderAndFileManager:
     def __init__(self):
-        self.folder_path = os.path.abspath("request_test_folder")
+        self.folder_path = "request_test_folder"
 
     def get_api_request_file(self):
         json_data = importlib.resources.read_text(file_api, 'api_response.json')

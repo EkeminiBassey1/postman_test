@@ -77,7 +77,7 @@ setup(
     # https://packaging.python.org/specifications/core-metadata/#name
     # also see this for package vs folder vs pip naming conventions:
     # https://oep.readthedocs.io/en/latest/oep-0003.html
-    name="emissions_pipeline",
+    name="postman_collab",
     # Versions should comply with PEP 440:
     # https://www.python.org/dev/peps/pep-0440/
     version="1.0.0",

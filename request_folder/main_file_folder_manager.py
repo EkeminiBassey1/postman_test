@@ -1,4 +1,4 @@
-from utils.api_json.sep import FolderAndFileManager
+from request_folder.class_file_folder_manager import FolderAndFileManager
 
 folder_file_manager = FolderAndFileManager()
 

@@ -45,10 +45,6 @@ jobs:
         run: |
           ls -R src
 
-      - name: Set working directory
-        run: cd src/postman_collab/request_folder
-        working-directory: src/postman_collab/request_folder
-
       - name: Set up Python
         uses: actions/setup-python@v2
         with:

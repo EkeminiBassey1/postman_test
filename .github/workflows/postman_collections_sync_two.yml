@@ -2,7 +2,7 @@ name: Execute python script
 
 on:
   workflow_run:
-    workflows: ["Manual Download Postman Collection"]
+    workflows: ["Download Postman Collection"]
     types:
       - completed
 

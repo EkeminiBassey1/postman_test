@@ -40,7 +40,12 @@ jobs:
         with:
           python-version: 3.9
 
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Navigate to the directory
+        run: cd src/postman_collab/request_folder
+
       - name: Execute Python Script
         run: |
-          cd scr/postman_collab/request_folder
           python main_file_folder_manager.py

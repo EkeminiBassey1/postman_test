@@ -1,4 +1,4 @@
-from request_folder.class_file_folder_manager import FolderAndFileManager
+from class_file_folder_manager import FolderAndFileManager
 
 folder_file_manager = FolderAndFileManager()
 

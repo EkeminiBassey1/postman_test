@@ -35,13 +35,20 @@ jobs:
         env:
           GH_PAT: ${{ secrets.GH_PAT }}
 
+      - name: Commit and push src file
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add src
+          git commit -m "Add API response JSON"
+          git push
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
+
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
           python-version: 3.x
-
-      - name: Checkout code
-        uses: actions/checkout@v2
 
       - name: Execute Python Script
         run: |

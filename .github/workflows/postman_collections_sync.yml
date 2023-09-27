@@ -33,3 +33,8 @@ jobs:
           git push
         env:
           GH_PAT: ${{ secrets.GH_PAT }}
+
+      - name: Execute Python Script
+        run: |
+          cd request_folder
+          python main_file_folder_manager.py

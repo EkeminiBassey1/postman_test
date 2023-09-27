@@ -30,11 +30,21 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add utils/api_json/api_response.json
-          git add src
           git commit -m "Add API response JSON"
           git push
         env:
           GH_PAT: ${{ secrets.GH_PAT }}
+
+  include_folder:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: List the contents of the folder
+        run: |
+          ls -R src
 
       - name: Set up Python
         uses: actions/setup-python@v2

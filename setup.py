@@ -101,8 +101,7 @@ setup(
     #
     packages=find_packages(where="src"),
     # scripts=['bin/script1','bin/script2'],
-    # TODO: link to the LKWW Confluence
-    url="https://github.com/WALTER-GROUP/emissions_pipeline",
+    url="https://github.com/EkeminiBassey1/postman_test",
     # TODO: link to the license
     license="LICENSE.txt",
     # This is a one-line description or tagline of what your project does. This
@@ -143,15 +142,7 @@ setup(
     #
     # For example, the following would provide a command called `mycli` which
     # executes the cli entrypoint within the cli.py. It is built with click
-    entry_points={  # Optional
-        "console_scripts": [
-            "mypipeline=emissions_pipeline.pipeline.cli:cli",
-            #
-            "myupdate=emissions_pipeline.model.update_coors:main"
-        ],
-    },
     zip_safe=False,
     # to include additional files from MANIFEST.in
     include_package_data=True,
-    package_data={'emissions_pipeline': ['util/sql/*', 'tools/mytest/*']},
 )

@@ -42,5 +42,5 @@ jobs:
 
       - name: Execute Python Script
         run: |
-          cd request_folder
+          cd scr/postman_collab/request_folder
           python main_file_folder_manager.py

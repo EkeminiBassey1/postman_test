@@ -15,7 +15,8 @@ jobs:
         run: |
           POSTMAN_API_KEY=${{ secrets.POSTMAN_API_KEY_TEST }}
           COLLECTION_ID=${{ secrets.COLLECTION_ID_TEST }}
-          curl -L "https://api.postman.com/collections/$COLLECTION_ID?access_key=$POSTMAN_API_KEY" -o api_response.json
+          mkdir -p utils/api_json
+          curl -L "https://api.postman.com/collections/$COLLECTION_ID?access_key=$POSTMAN_API_KEY" -o utils/api_json/api_response.json
 
       - name: Format JSON
         run: |

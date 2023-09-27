@@ -30,15 +30,6 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add utils/api_json/api_response.json
-          git commit -m "Add API response JSON"
-          git push
-        env:
-          GH_PAT: ${{ secrets.GH_PAT }}
-
-      - name: Commit and push src file
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
           git add src
           git commit -m "Add API response JSON"
           git push

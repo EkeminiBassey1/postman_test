@@ -39,6 +39,9 @@ jobs:
     runs-on: uubuntu-latest
 
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
       - name: Check if Folder Exists and Create It
         run: |
           if [ ! -d "$GITHUB_WORKSPACE/request_test_folder" ]; then

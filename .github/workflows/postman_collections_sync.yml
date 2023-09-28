@@ -30,6 +30,7 @@ jobs:
           git config --local user.name "GitHub Action"
           git add utils/api_json/api_response.json
           git commit -m "Add API response JSON"
+          git pull
           git push
         env:
           GH_PAT: ${{ secrets.GH_PAT }}

@@ -366,6 +366,10 @@
         "request": {
           "method": "GET",
           "header": [],
+          "body": {
+            "mode": "raw",
+            "raw": "{\r\n    HELLO! HELLO!\r\n}"
+          },
           "url": {
             "raw": "sdsadassda1111ss56sss55sssssssssss55ssss55555s5sss",
             "host": [

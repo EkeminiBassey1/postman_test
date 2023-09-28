@@ -70,7 +70,6 @@ jobs:
           fi
         working-directory: ${{ github.workspace }}
 
-
   execute-python-script:
     needs: create-folder
     runs-on: ubuntu-latest
@@ -103,9 +102,8 @@ jobs:
           python-version: 3.9
 
       - name: Execute Python Script
-        run: |
-          python main_file_folder_manager.py
-        working-directory: ${{ github.workspace }}/utils/request_test_folder
+        run: python utils/request_test_folder/main_file_folder_manager.py
+        working-directory: ${{ github.workspace }}
 
       - name: Commit and Push Changes
         run: |

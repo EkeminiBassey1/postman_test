@@ -43,6 +43,10 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
 
+      - name: Pull Latest Changes
+        run: git pull origin main  # Replace 'main' with your branch name
+        working-directory: ${{ github.workspace }}
+
       - name: Create Folder
         run: |
           mkdir -p utils/request_test_folder
@@ -55,7 +59,7 @@ jobs:
           git config user.email "actions@github.com"
           git add .
           git commit -m "Create request_test_folder"
-          git push
+          git push origin main  # Replace 'main' with your branch name
         working-directory: ${{ github.workspace }}
 
   execute-python-script:

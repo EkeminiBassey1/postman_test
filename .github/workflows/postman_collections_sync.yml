@@ -39,8 +39,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Debug GitHub Environment
+        run: |
+          echo "GitHub Workspace: GH_PAT"
+          ls -al GH_PAT
+
       - name: Check if Folder Exists
-        working-directory: postman_test
         run: |
           if [ ! -d "request_test_folder" ]; then
             echo "Folder doesn't exist, creating it..."

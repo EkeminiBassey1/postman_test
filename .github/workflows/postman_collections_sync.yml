@@ -52,6 +52,15 @@ jobs:
           else
             echo "Folder already exists, skipping creation."
           fi
+      - name: Copy Folder to Artifact
+        run: |
+          cp -r "$GITHUB_WORKSPACE/request_test_folder" "$GITHUB_WORKSPACE/artifacts/request_test_folder"
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: my-artifact
+          path: $GITHUB_WORKSPACE/artifacts
 
   execute-python-script:
     needs: create-folder-tests

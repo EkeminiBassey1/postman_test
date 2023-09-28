@@ -19,7 +19,6 @@ jobs:
 
       - name: Format JSON
         run: |
-          cd utils/api_json
           jq . api_response.json > formatted_api_response.json
           mv formatted_api_response.json api_response.json
 

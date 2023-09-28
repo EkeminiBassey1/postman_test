@@ -40,6 +40,7 @@ jobs:
 
     steps:
       - name: Check if Folder Exists
+        working-directory: postman_test
         run: |
           if [ ! -d "request_test_folder" ]; then
             echo "Folder doesn't exist, creating it..."

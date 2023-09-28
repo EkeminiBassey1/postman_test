@@ -34,6 +34,20 @@ jobs:
         env:
           GH_PAT: ${{ secrets.GH_PAT }}
 
+  create-folder-tests:
+    needs: download-collection-postman
+    runs-on: uubuntu-latest
+
+    steps:
+      - name: Check if Folder Exists and Create It
+        run: |
+          if [ ! -d "$GITHUB_WORKSPACE/request_test_folder" ]; then
+            echo "Folder doesn't exist, creating it..."
+            mkdir "$GITHUB_WORKSPACE/request_test_folder"
+          else
+            echo "Folder already exists, skipping creation."
+          fi
+
   execute-python-script:
     needs: create-folder-tests
     runs-on: ubuntu-latest

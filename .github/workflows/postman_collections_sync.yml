@@ -52,18 +52,12 @@ jobs:
           if [ ! -d "request_test_folder" ]; then
             echo "Folder doesn't exist, creating it..."
             mkdir "request_test_folder"
+            git add "request_test_folder"
+            git commit -m "Create folder if it doesn't exist"
+            git push
           else
             echo "Folder already exists, skipping creation."
           fi
-
-      - name: Commit and Push if Folder was Created
-        if: ${{ steps.create-folder.outputs.changed == 'true' }}
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add "request_test_folder"
-          git commit -m "Create folder if it doesn't exist"
-          git push
 
       - name: Execute Python Script
         run: |

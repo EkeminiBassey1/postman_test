@@ -36,7 +36,7 @@ jobs:
 
   create-folder-tests:
     needs: download-collection-postman
-    runs-on: uubuntu-latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code

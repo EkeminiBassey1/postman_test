@@ -83,6 +83,16 @@ jobs:
         run: git pull origin test
         working-directory: ${{ github.workspace }}
 
+      - name: Move Files to request_test_folder (if not already there)
+        run: |
+          if [ ! -e "utils/request_test_folder/main_file_folder_manager.py" ]; then
+            mv main_file_folder_manager.py utils/request_test_folder/
+          fi
+          if [ ! -e "utils/request_test_folder/class_file_folder_manager.py" ]; then
+            mv class_file_folder_manager.py utils/request_test_folder/
+          fi
+        working-directory: ${{ github.workspace }}
+
       - name: Change to request_test_folder
         run: cd utils/request_test_folder
         working-directory: ${{ github.workspace }}

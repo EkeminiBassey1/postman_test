@@ -47,10 +47,14 @@ jobs:
         run: git pull origin test
         working-directory: ${{ github.workspace }}
 
-      - name: Create Folder
+      - name: Create Folder (if it doesn't exist)
         run: |
-          mkdir -p utils/request_test_folder
-          touch utils/request_test_folder/.gitkeep  # Create a placeholder file if needed
+          if [ ! -d "utils/request_test_folder" ]; then
+            mkdir -p utils/request_test_folder
+            touch utils/request_test_folder/.gitkeep  # Create a placeholder file if needed
+          else
+            echo "Folder already exists, skipping creation."
+          fi
         working-directory: ${{ github.workspace }}
 
       - name: Commit and Push Changes

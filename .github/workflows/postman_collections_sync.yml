@@ -57,7 +57,7 @@ jobs:
           fi
 
       - name: Commit and Push if Folder was Created
-        if: ${{ steps.create-folder.outputs.changed == 'true' }}
+        if: ${{ steps.create-folder.outputs.changed == 'false' }}
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"

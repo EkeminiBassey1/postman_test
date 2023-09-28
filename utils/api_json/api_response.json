@@ -4,7 +4,7 @@
       "_postman_id": "78dd1021-0e04-4df1-949e-7f8276e9fc1a",
       "name": "Requests_test",
       "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-      "updatedAt": "2023-09-28T09:24:27.000Z",
+      "updatedAt": "2023-09-28T11:38:47.000Z",
       "uid": "28491137-78dd1021-0e04-4df1-949e-7f8276e9fc1a"
     },
     "item": [
@@ -425,6 +425,29 @@
         },
         "response": [],
         "uid": "28491137-400b1fcc-7cd9-4fd8-8363-be732e9efede"
+      },
+      {
+        "name": "dafsgsgsdgas",
+        "id": "0e024e6e-44f3-41b2-ac27-6a8be2202c94",
+        "protocolProfileBehavior": {
+          "disableBodyPruning": true
+        },
+        "request": {
+          "method": "GET",
+          "header": [],
+          "body": {
+            "mode": "raw",
+            "raw": "agsgsagsgd"
+          },
+          "url": {
+            "raw": "dafsgsgsdgas",
+            "host": [
+              "dafsgsgsdgas"
+            ]
+          }
+        },
+        "response": [],
+        "uid": "28491137-0e024e6e-44f3-41b2-ac27-6a8be2202c94"
       }
     ]
   }

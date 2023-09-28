@@ -34,6 +34,28 @@ jobs:
         env:
           GH_PAT: ${{ secrets.GH_PAT }}
 
+  create-folder-tests:
+    needs: download-collection-postman
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check if Folder Exists
+        run: |
+          if [ ! -d "request_tests_folder" ]; then
+            echo "Folder doesn't exist, creating it..."
+            mkdir "request_test_folder"
+          else
+            echo "Folder already exists, skipping creation."
+          fi
+
+      - name: Commit and push folder request
+        run: | 
+          git config --local user.email "action@github.com"
+          git config --local user.name "Github Action"
+          git add request_tests_folder
+          git commit -m "Request folder has been created"
+          git push
+
   execute-python-script:
     needs: download-collection-postman
     runs-on: ubuntu-latest
@@ -46,20 +68,6 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: 3.9
-
-      - name: Check if Folder Exists
-        run: |
-          if [ ! -d "request_test_folder" ]; then
-            echo "Folder doesn't exist, creating it..."
-            git config --local user.email "action@github.com"
-            git config --local user.name "GitHub Action"
-            mkdir "request_test_folder"
-            git add "request_test_folder"
-            git commit -m "Create folder if it doesn't exist"
-            git push
-          else
-            echo "Folder already exists, skipping creation."
-          fi
 
       - name: Execute Python Script
         run: |

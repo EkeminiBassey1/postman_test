@@ -34,23 +34,28 @@ jobs:
         env:
           GH_PAT: ${{ secrets.GH_PAT }}
 
-  create-folder-tests:
+  create-folder:
     needs: download-collection-postman
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Check out code
         uses: actions/checkout@v2
 
-      - name: Check if Folder Exists and Create It
+      - name: Create Folder
         run: |
-          if [ ! -d "utils/api_json/request_test_folder" ]; then
-            echo "Folder doesn't exist, creating it..."
-            cd "$GITHUB_WORKSPACE/utils/api_json/"
-            mkdir -p "request_test_folder"
-          else
-            echo "Folder already exists, skipping creation."
-          fi
+          mkdir -p utils/request_test_folder
+          touch utils/request_test_folder/.gitkeep  # Create a placeholder file if needed
+        working-directory: ${{ github.workspace }}
+
+      - name: Commit and Push Changes
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add .
+          git commit -m "Create request_test_folder"
+          git push
+        working-directory: ${{ github.workspace }}
 
   execute-python-script:
     needs: create-folder-tests

@@ -50,14 +50,12 @@ jobs:
 
       - name: Commit and push folder request
         run: | 
-          git config --local user.email "action@github.com"
-          git config --local user.name "Github Action"
           git add request_tests_folder
           git commit -m "Request folder has been created"
           git push
 
   execute-python-script:
-    needs: download-collection-postman
+    needs: create-folder-tests
     runs-on: ubuntu-latest
 
     steps:

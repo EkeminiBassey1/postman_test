@@ -51,6 +51,8 @@ jobs:
         run: |
           if [ ! -d "request_test_folder" ]; then
             echo "Folder doesn't exist, creating it..."
+            git config --local user.email "action@github.com"
+            git config --local user.name "GitHub Action"
             mkdir "request_test_folder"
             git add "request_test_folder"
             git commit -m "Create folder if it doesn't exist"

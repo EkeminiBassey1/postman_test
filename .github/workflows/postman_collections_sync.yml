@@ -15,8 +15,7 @@ jobs:
         run: |
           POSTMAN_API_KEY=${{ secrets.POSTMAN_API_KEY_TEST }}
           COLLECTION_ID=${{ secrets.COLLECTION_ID_TEST }}
-          mkdir -p utils/api_json
-          curl -L "https://api.postman.com/collections/$COLLECTION_ID?access_key=$POSTMAN_API_KEY" -o utils/api_json/api_response.json
+          curl -L "https://api.postman.com/collections/$COLLECTION_ID?access_key=$POSTMAN_API_KEY" -o api_response.json
 
       - name: Format JSON
         run: |
@@ -28,7 +27,7 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add utils/api_json/api_response.json
+          git add api_response.json
           git commit -m "Add API response JSON"
           git pull
           git push
@@ -49,9 +48,9 @@ jobs:
 
       - name: Create Folder (if it doesn't exist)
         run: |
-          if [ ! -d "utils/request_test_folder" ]; then
-            mkdir -p utils/request_test_folder
-            touch utils/request_test_folder/.gitkeep  # Create a placeholder file if needed
+          if [ ! -d "request_test_folder" ]; then
+            mkdir -p request_test_folder
+            touch request_test_folder/.gitkeep  # Create a placeholder file if needed
           else
             echo "Folder already exists, skipping creation."
           fi
@@ -82,27 +81,13 @@ jobs:
         run: git pull origin test
         working-directory: ${{ github.workspace }}
 
-      - name: Move Files to request_test_folder (if not already there)
-        run: |
-          if [ ! -e "utils/request_test_folder/main_file_folder_manager.py" ]; then
-            mv main_file_folder_manager.py utils/request_test_folder/
-          fi
-          if [ ! -e "utils/request_test_folder/class_file_folder_manager.py" ]; then
-            mv class_file_folder_manager.py utils/request_test_folder/
-          fi
-        working-directory: ${{ github.workspace }}
-
-      - name: Change to request_test_folder
-        run: cd utils/request_test_folder
-        working-directory: ${{ github.workspace }}
-
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
           python-version: 3.9
 
       - name: Execute Python Script
-        run: python utils/request_test_folder/main_file_folder_manager.py
+        run: python main_file_folder_manager.py
         working-directory: ${{ github.workspace }}
 
       - name: Commit and Push Changes

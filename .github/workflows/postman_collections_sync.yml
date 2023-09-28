@@ -48,6 +48,7 @@ jobs:
         run: |
           if [ ! -d "request_test_folder" ]; then
             echo "Folder doesn't exist, creating it..."
+            cd home/runner/work/postman_test
             mkdir "request_test_folder"
           else
             echo "Folder already exists, skipping creation."

@@ -67,14 +67,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Check out code
         uses: actions/checkout@v2
 
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.9
+      - name: Pull Latest Changes
+        run: git pull origin test
+        working-directory: ${{ github.workspace }}
+
+      - name: Change to request_test_folder
+        run: cd utils/request_test_folder
+        working-directory: ${{ github.workspace }}
 
       - name: Execute Python Script
         run: |
           python main_file_folder_manager.py
+        working-directory: ${{ github.workspace }}/utils/request_test_folder
+
+      - name: Commit and Push Changes
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add .
+          git commit -m "Execute main script"
+          git push origin main  # Replace 'main' with your branch name
+        working-directory: ${{ github.workspace }}

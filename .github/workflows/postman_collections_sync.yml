@@ -41,8 +41,8 @@ jobs:
     steps:
       - name: Debug GitHub Environment
         run: |
-          echo "GitHub Workspace: GH_PAT"
-          ls -al GH_PAT
+          echo "GitHub Workspace: $GITHUB_WORKSPACE"
+          ls -al $GITHUB_WORKSPACE
 
       - name: Check if Folder Exists
         run: |

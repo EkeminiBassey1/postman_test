@@ -44,12 +44,11 @@ jobs:
           echo "GitHub Workspace: $GITHUB_WORKSPACE"
           ls -al $GITHUB_WORKSPACE
 
-      - name: Check if Folder Exists
+      - name: Check if Folder Exists and Create It
         run: |
-          if [ ! -d "request_test_folder" ]; then
+          if [ ! -d "$GITHUB_WORKSPACE/request_test_folder" ]; then
             echo "Folder doesn't exist, creating it..."
-            cd home/runner/work/postman_test
-            mkdir "request_test_folder"
+            mkdir "$GITHUB_WORKSPACE/request_test_folder"
           else
             echo "Folder already exists, skipping creation."
           fi

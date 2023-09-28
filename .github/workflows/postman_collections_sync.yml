@@ -41,9 +41,9 @@ jobs:
     steps:
       - name: Check if Folder Exists
         run: |
-          if [ ! -d $GH_PAT/request_test_folder ]; then
+          if [ ! -d "request_test_folder" ]; then
             echo "Folder doesn't exist, creating it..."
-            mkdir $GH_PAT/request_test_folder
+            mkdir "request_test_folder"
           else
             echo "Folder already exists, skipping creation."
           fi

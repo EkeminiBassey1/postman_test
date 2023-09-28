@@ -58,7 +58,7 @@ jobs:
         working-directory: ${{ github.workspace }}
 
   execute-python-script:
-    needs: create-folder-tests
+    needs: create-folder
     runs-on: ubuntu-latest
 
     steps:

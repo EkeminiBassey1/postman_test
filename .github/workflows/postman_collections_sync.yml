@@ -44,9 +44,10 @@ jobs:
 
       - name: Check if Folder Exists and Create It
         run: |
-          if [ ! -d "$GITHUB_WORKSPACE/request_test_folder" ]; then
+          if [ ! -d "utils/api_json/request_test_folder" ]; then
             echo "Folder doesn't exist, creating it..."
-            mkdir "$GITHUB_WORKSPACE/request_test_folder"
+            cd "$GITHUB_WORKSPACE/utils/api_json/"
+            mkdir -p "request_test_folder"
           else
             echo "Folder already exists, skipping creation."
           fi

@@ -4,7 +4,7 @@
       "_postman_id": "78dd1021-0e04-4df1-949e-7f8276e9fc1a",
       "name": "Requests_test",
       "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-      "updatedAt": "2023-09-27T14:07:12.000Z",
+      "updatedAt": "2023-09-28T08:08:29.000Z",
       "uid": "28491137-78dd1021-0e04-4df1-949e-7f8276e9fc1a"
     },
     "item": [
@@ -371,14 +371,37 @@
             "raw": "{\r\n    HELLO! HELLO!\r\n}"
           },
           "url": {
-            "raw": "sdsadassda1111ss56sss55sssssssssss55ssss55555s5ssss5555",
+            "raw": "sdsadassda1111ss56sss55sssssssssss55ssss55555s5ssss555555",
             "host": [
-              "sdsadassda1111ss56sss55sssssssssss55ssss55555s5ssss5555"
+              "sdsadassda1111ss56sss55sssssssssss55ssss55555s5ssss555555"
             ]
           }
         },
         "response": [],
         "uid": "28491137-15b240a6-d0d9-47af-a205-ecc1c890681d"
+      },
+      {
+        "name": "checking_this_works",
+        "id": "797503e2-daea-4b48-9fa2-22192d27d135",
+        "protocolProfileBehavior": {
+          "disableBodyPruning": true
+        },
+        "request": {
+          "method": "GET",
+          "header": [],
+          "body": {
+            "mode": "raw",
+            "raw": "{\r\n\r\n    Yeeea!\r\n}"
+          },
+          "url": {
+            "raw": "checking_this_works",
+            "host": [
+              "checking_this_works"
+            ]
+          }
+        },
+        "response": [],
+        "uid": "28491137-797503e2-daea-4b48-9fa2-22192d27d135"
       }
     ]
   }

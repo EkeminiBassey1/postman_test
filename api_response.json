@@ -437,7 +437,7 @@
           "header": [],
           "body": {
             "mode": "raw",
-            "raw": "agsgsagsgd"
+            "raw": "{\r\n    {{example_text}}\r\n}"
           },
           "url": {
             "raw": "dafsgsgsdgassdfghjksfdfdsssssssss5ssslhjfssssss222sssssssssssssssss",

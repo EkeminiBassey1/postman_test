@@ -15,7 +15,7 @@ jobs:
         run: |
           POSTMAN_API_KEY=${{ secrets.POSTMAN_API_KEY_TEST }}
           COLLECTION_ID=${{ secrets.COLLECTION_ID_TEST }}
-          POSTMAN_ENVIRONMENT_ID=${{ secrets.POSTMAN_API_KEY_TEST_ENV_VAR }} 
+          POSTMAN_ENVIRONMENT_ID=${{ secrets.POSTMAN_ENVIRONMENT_ID_TEST }} 
 
           curl -L "https://api.postman.com/collections/$COLLECTION_ID?access_key=$POSTMAN_API_KEY" -o api_response.json
           curl -X GET "https://api.postman.com/environments/$POSTMAN_ENVIRONMENT_ID" \

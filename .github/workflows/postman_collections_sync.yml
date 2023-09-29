@@ -23,10 +23,15 @@ jobs:
             -H "X-Api-Key: $POSTMAN_API_KEY_ENV" \
             -o postman_environment.json
 
-      - name: Format JSON
+      - name: Format Api Response JSON
         run: |
           jq . api_response.json > formatted_api_response.json
           mv formatted_api_response.json api_response.json
+
+      - name: Format Postman Environment JSON
+        run: |
+          jq . postman_environment.json > formatted_postman_environment.json
+          mv formatted_postman_environment.json postman_environment.json
 
       - name: Commit and push JSON file
         run: |

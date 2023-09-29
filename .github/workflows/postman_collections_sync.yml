@@ -18,7 +18,7 @@ jobs:
           POSTMAN_ENVIRONMENT_ID=${{ secrets.POSTMAN_ENVIRONMENT_ID_TEST }} 
 
           curl -L "https://api.postman.com/collections/$COLLECTION_ID?access_key=$POSTMAN_API_KEY" -o api_response.json
-          curl -L "https://api.postman.com/environments/$POSTMAN_ENVIRONMENT_ID?access_key=$POSTMAN_API_KEY" -o postman_environment.json
+          curl -L "https://api.postman.com/environments/$POSTMAN_ENVIRONMENT_ID?access_key=PMAT-01HAYDWYQN542AFQEDE72SFXMY" -o postman_environment.json
 
       - name: Format JSON
         run: |

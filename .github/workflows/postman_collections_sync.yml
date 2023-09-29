@@ -33,6 +33,7 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add api_response.json
+          git add postman_environment.json
           git commit -m "Add API response JSON"
           git pull
           git push

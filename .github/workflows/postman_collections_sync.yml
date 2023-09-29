@@ -14,12 +14,13 @@ jobs:
       - name: Download Postman Collection and Environment Variables
         run: |
           POSTMAN_API_KEY=${{ secrets.POSTMAN_API_KEY_TEST }}
+          POSTMAN_API_KEY_ENV=${{ secrets.POSTMAN_API_KEY_TEST_ENV_VAR }}
           COLLECTION_ID=${{ secrets.COLLECTION_ID_TEST }}
           POSTMAN_ENVIRONMENT_ID=${{ secrets.POSTMAN_ENVIRONMENT_ID_TEST }} 
 
           curl -L "https://api.postman.com/collections/$COLLECTION_ID?access_key=$POSTMAN_API_KEY" -o api_response.json
           curl -X GET "https://api.postman.com/environments/$POSTMAN_ENVIRONMENT_ID" \
-            -H "X-Api-Key: $POSTMAN_API_KEY" \
+            -H "X-Api-Key: $POSTMAN_API_KEY_ENV" \
             -o postman_environment.json
 
       - name: Format JSON

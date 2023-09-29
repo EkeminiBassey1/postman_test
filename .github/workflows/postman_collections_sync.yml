@@ -21,7 +21,7 @@ jobs:
         run: |
           POSTMAN_API_KEY=${{ secrets.POSTMAN_API_KEY_TEST }}
           POSTMAN_ENVIRONMENT_ID=${{ secrets.POSTMAN_ENVIRONMENT_ID_TEST }} 
-          curl -X GET "https://api.postman.com/environments/$POSTMAN_ENVIRONMENT_ID" \
+          curl -L "https://api.postman.com/environments/$POSTMAN_ENVIRONMENT_ID" \
             -H "X-Api-Key: $POSTMAN_API_KEY" \
             -o postman_environment.json
 

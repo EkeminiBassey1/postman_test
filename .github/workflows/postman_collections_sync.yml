@@ -17,6 +17,12 @@ jobs:
           COLLECTION_ID=${{ secrets.COLLECTION_ID_TEST }}
           curl -L "https://api.postman.com/collections/$COLLECTION_ID?access_key=$POSTMAN_API_KEY" -o api_response.json
 
+      - name: Download Postman Environment Variables
+        run: |
+          POSTMAN_API_KEY=${{ secrets.POSTMAN_API_KEY_TEST }}
+          POSTMAN_ENVIRONMENT_ID =${{ secrets.POSTMAN_ENVIRONMENT_ID_TEST }} 
+          curl -L "https://api.postman.com/collections/$POSTMAN_ENVIRONMENT_ID?access_key=$POSTMAN_API_KEY" -o postman_environment.json
+
       - name: Format JSON
         run: |
           jq . api_response.json > formatted_api_response.json

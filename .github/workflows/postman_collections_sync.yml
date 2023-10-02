@@ -1,4 +1,4 @@
-name: Download Postman Collection
+name: Download-Postman-Collection
 
 on:
   workflow_dispatch:

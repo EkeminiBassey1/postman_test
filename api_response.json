@@ -4,7 +4,7 @@
       "_postman_id": "78dd1021-0e04-4df1-949e-7f8276e9fc1a",
       "name": "Requests_test",
       "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-      "updatedAt": "2023-09-28T11:38:47.000Z",
+      "updatedAt": "2023-09-29T13:42:11.000Z",
       "uid": "28491137-78dd1021-0e04-4df1-949e-7f8276e9fc1a"
     },
     "item": [
@@ -414,7 +414,7 @@
           "header": [],
           "body": {
             "mode": "raw",
-            "raw": "{\r\n    hellohellohellohellohellohellohellohello!!!\r\n}"
+            "raw": "{\r\n    {{hellohello}}\r\n}"
           },
           "url": {
             "raw": "hellohellohellohellohellohellohellohellohellohelloooooosssssssssssssssss555www",
@@ -448,6 +448,29 @@
         },
         "response": [],
         "uid": "28491137-0e024e6e-44f3-41b2-ac27-6a8be2202c94"
+      },
+      {
+        "name": "sadfnm",
+        "id": "cc719bb9-46f5-4ffd-bf2b-afea41e4e3cf",
+        "protocolProfileBehavior": {
+          "disableBodyPruning": true
+        },
+        "request": {
+          "method": "GET",
+          "header": [],
+          "body": {
+            "mode": "raw",
+            "raw": "{\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n}"
+          },
+          "url": {
+            "raw": "sadfnmsss",
+            "host": [
+              "sadfnmsss"
+            ]
+          }
+        },
+        "response": [],
+        "uid": "28491137-cc719bb9-46f5-4ffd-bf2b-afea41e4e3cf"
       }
     ]
   }

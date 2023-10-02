@@ -110,3 +110,15 @@ jobs:
           git commit -m "Execute main script"
           git push origin test
         working-directory: ${{ github.workspace }}
+
+  move_file:
+    needs: execute-python-script
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Move File
+          run: |
+            mv postman_environment.json request_test_folder/
+            git add .
+            git commit -m "Move postman_environment.json to request_test_folder"
+            git push origin test  # Replace with the appropriate branch name

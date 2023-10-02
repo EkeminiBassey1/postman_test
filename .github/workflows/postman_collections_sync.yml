@@ -116,6 +116,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
       - name: Move File
           run: |
             mv postman_environment.json request_test_folder/

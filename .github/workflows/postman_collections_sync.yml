@@ -46,7 +46,7 @@ jobs:
           GH_PAT: ${{ secrets.GH_PAT }}
 
   encrypt:
-    need: download-collection-postman
+    needs: download-collection-postman
     runs-on: ubuntu-latest
 
     steps:

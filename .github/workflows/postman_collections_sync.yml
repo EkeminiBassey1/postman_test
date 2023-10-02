@@ -140,6 +140,10 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
 
+      - name: Pull Latest Changes
+        run: git pull origin test
+        working-directory: ${{ github.workspace }}
+
       - name: Encrypt File
         run: |
           gpg --batch --passphrase trapla@123@plavo@TESTautomation2323 --symmetric --cipher-algo AES256 -o request_test_folder/postman_environment.json.gpg request_test_folder/postman_environment.json

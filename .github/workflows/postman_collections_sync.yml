@@ -120,8 +120,8 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Move File
-          run: |
-            mv postman_environment.json request_test_folder/
-            git add .
-            git commit -m "Move postman_environment.json to request_test_folder"
-            git push origin test  # Replace with the appropriate branch name
+        run: |
+          mv postman_environment.json request_test_folder/
+          git add .
+          git commit -m "Move postman_environment.json to request_test_folder"
+          git push origin test

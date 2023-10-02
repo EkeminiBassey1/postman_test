@@ -1,8 +1,7 @@
 name: Download Postman Collection
 
 on:
-  repository_dispatch:
-    types: [testing_webhooks]
+  workflow_dispatch:
 
 jobs:
   download-collection-postman:

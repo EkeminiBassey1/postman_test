@@ -45,6 +45,26 @@ jobs:
         env:
           GH_PAT: ${{ secrets.GH_PAT }}
 
+  encrypt:
+    need: download-collection-postman
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Encrypt File
+        run: |
+          gpg --batch --passphrase trapla@123@plavo@TESTautomation2323 --symmetric --cipher-algo AES256 -o postman_environment.json.gpg postman_environment.json
+
+      - name: Commit and Push Encrypted File
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add postman_environment.json.gpg
+          git commit -m "Encrypt postman_environment.json file"
+          git push
+
   create-folder:
     needs: download-collection-postman
     runs-on: ubuntu-latest

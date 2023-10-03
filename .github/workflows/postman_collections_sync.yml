@@ -2,8 +2,7 @@ name: Postman Collections Sync
 
 on:
   repository_dispatch:
-    types:
-      - Download-Postman-Collection
+    types: [postman-trigger]
 
 jobs:
   download-collection-postman:

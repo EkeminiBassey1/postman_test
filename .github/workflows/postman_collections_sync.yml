@@ -1,9 +1,9 @@
-name: Download-Postman-Collection
+name: Postman Collections Sync
 
 on:
   repository_dispatch:
     types:
-      - collection-merge
+      - Download-Postman-Collection
 
 jobs:
   download-collection-postman:

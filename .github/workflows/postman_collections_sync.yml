@@ -3,7 +3,7 @@ name: Download-Postman-Collection
 on:
   repository_dispatch:
     types:
-      - Download-Postman-Collection
+      - collection-merge
 
 jobs:
   download-collection-postman:

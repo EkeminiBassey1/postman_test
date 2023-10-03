@@ -1,7 +1,9 @@
 name: Download-Postman-Collection
 
 on:
-  workflow_dispatch:
+  repository_dispatch:
+    types:
+      - collection-merged
 
 jobs:
   download-collection-postman:

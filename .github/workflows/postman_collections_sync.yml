@@ -1,5 +1,9 @@
 name: Postman Collections Sync
 
+env:
+  REPO_OWNER: EkeminiBassey1
+  REPO_NAME: postman_test
+  GITHUB_TOKEN: ${{ secrets.GH_PAT }}
 on:
   repository_dispatch:
     types: [postman-trigger]

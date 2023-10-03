@@ -2,8 +2,7 @@ name: Download-Postman-Collection
 
 on:
   repository_dispatch:
-    types:
-      - collection-merged
+    types: [Download-Postman-Collection]
 
 jobs:
   download-collection-postman:

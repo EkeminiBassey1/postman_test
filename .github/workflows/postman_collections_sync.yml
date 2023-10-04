@@ -194,9 +194,6 @@ jobs:
       - name: Remove File
         run: |
           rm -f request_test_folder/postman_environment.json
-          
-          git config --local user.email "bassey@walter-group.com"
-          git config --local user.name "EkeminiBassey1"
-          git add .
-          git commit -m "Remove raw postman environment variable file"
+          git add request_test_folder/postman_environment.json
+          git commit -m "Remove request_test_folder/postman_environment.json"
           git push origin test

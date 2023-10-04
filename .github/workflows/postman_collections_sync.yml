@@ -159,12 +159,12 @@ jobs:
       - name: Check if encrypted file exists
         id: check-encrypted-file
         run: |
-          if [ -f "request_test_folder/postman_environment.json.gpg" ]; then
-            echo "Encrypted file already exists. Skipping encryption step."
-            echo "::set-output name=encrypt::false"
-          else
-            echo "::set-output name=encrypt::true"
-          fi
+            if [ -f "request_test_folder/postman_environment.json.gpg" ]; then
+              echo "Encrypted file already exists. Skipping encryption step."
+              echo "::set-output name=encrypt::false"
+            else
+              echo "::set-output name=encrypt::true"
+            fi
 
       - name: Encrypt File
         if: steps.check-encrypted-file.outputs.encrypt == 'true'
@@ -175,7 +175,8 @@ jobs:
         run: |
           ls request_test_folder 
 
-      - name: Commit and Push Encrypted File
+      - name: Commit and push encrypted changes
+        if: steps.check-encrypted-file.outputs.encrypt == 'true' && steps.check-changes.outputs.changes == 'true'
         run: |
           git config --local user.email "bassey@walter-group.com"
           git config --local user.name "EkeminiBassey1"
@@ -183,7 +184,7 @@ jobs:
           git commit -m "Encrypt postman_environment.json file"
           git push origin test
 
-  delete-raw-postman-var-file:
+  delete-file:
     needs: encrypt
     runs-on: ubuntu-latest
 

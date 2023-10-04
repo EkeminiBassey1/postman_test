@@ -347,7 +347,7 @@
 					"mode": "raw",
 					"raw": "{\r\n    Lets post!!\r\n}"
 				},
-				"url": "Whatshappening.com/Events/collectionssssssssssssssss"
+				"url": "Whatshappening.com/Events/collectionsssssssssssssssssss"
 			},
 			"response": []
 		},
@@ -362,7 +362,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    Lets-seeeee!\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n        {{example_text}}\r\n            {{example_text}}\r\n}"
+					"raw": "{\r\n    Lets-seeeee!\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n}"
 				},
 				"url": "https://www.thegoogleofafrica.africa/countries/nigeria/akwa-ibom-state/eket/bassey-street/nr-10"
 			},

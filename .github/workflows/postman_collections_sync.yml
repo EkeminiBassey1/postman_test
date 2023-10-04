@@ -137,6 +137,7 @@ jobs:
       - name: Move File
         run: |
           mv postman_environment.json request_test_folder/
+          mv api_response.json backup_collection/
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
           git add .

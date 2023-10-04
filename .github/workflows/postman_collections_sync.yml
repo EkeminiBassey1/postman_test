@@ -169,7 +169,7 @@ jobs:
       - name: Encrypt File
         if: steps.check-encrypted-file.outputs.encrypt == 'true'
         run: |
-          gpg --batch --passphrase trapla@123@plavo@TESTautomation2323 --symmetric --cipher-algo AES256 -o request_test_folder/postman_environment.json.gpg request_test_folder/postman_environment.json
+          gpg --batch --passphrase "${{ secrets.ENCRYPTION_PASSPHRASE }}" --symmetric --cipher-algo AES256 -o request_test_folder/postman_environment.json.gpg request_test_folder/postman_environment.json
 
       - name: Verify Encrypted File
         run: |
@@ -181,4 +181,22 @@ jobs:
           git config --local user.name "EkeminiBassey1"
           git add request_test_folder/postman_environment.json.gpg
           git commit -m "Encrypt postman_environment.json file"
+          git push origin test
+
+  delete-raw-postman-var-file:
+    needs: encrypt
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Remove File
+        run: |
+          rm -f request_test_folder/postman_environment.json
+          
+          git config --local user.email "bassey@walter-group.com"
+          git config --local user.name "EkeminiBassey1"
+          git add request_test_folder/postman_environment.json
+          git commit -m "Remove raw postman_environment file"
           git push origin test

@@ -156,7 +156,18 @@ jobs:
         run: git pull origin test
         working-directory: ${{ github.workspace }}
 
+      - name: Check if encrypted file exists
+        id: check-encrypted-file
+        run: |
+          if [ -f "request_test_folder/postman_environment.json.gpg" ]; then
+            echo "Encrypted file already exists. Skipping encryption step."
+            echo "::set-output name=encrypt::false"
+          else
+            echo "::set-output name=encrypt::true"
+          fi
+
       - name: Encrypt File
+        if: steps.check-encrypted-file.outputs.encrypt == 'true'
         run: |
           gpg --batch --passphrase trapla@123@plavo@TESTautomation2323 --symmetric --cipher-algo AES256 -o request_test_folder/postman_environment.json.gpg request_test_folder/postman_environment.json
 

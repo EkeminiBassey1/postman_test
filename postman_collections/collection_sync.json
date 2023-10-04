@@ -345,9 +345,9 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    Lets post!!\r\n}"
+					"raw": "{\r\n    Lets post!!\r\n    Lets post!!\r\n    Lets post!!\r\n}"
 				},
-				"url": "Whatshappening.com/Events/collectionsssssssssssssssssss"
+				"url": "Whatshappening.com/Events/collectionssssssssssssssssssssss"
 			},
 			"response": []
 		},

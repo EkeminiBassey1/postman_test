@@ -1,7 +1,7 @@
 import json
 import os
 import postman_collections as file_collection
-import importlib
+import importlib.resources
 
 
 class FolderAndFileManager:

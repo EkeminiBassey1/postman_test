@@ -156,23 +156,18 @@ jobs:
         run: git pull origin test
         working-directory: ${{ github.workspace }}
 
-      - name: Check if encrypted file exists
-        id: check-encrypted-file
+      - name: Encrypt File
         run: |
-          if [ -f "request_test_folder/postman_environment.json.gpg" ]; then
-            echo "Encrypted file already exists. Skipping encryption and commit/push steps."
-            echo "::set-output name=encrypt::false"
-          else
-            echo "::set-output name=encrypt::true"
-            gpg --batch --passphrase trapla@123@plavo@TESTautomation2323 --symmetric --cipher-algo AES256 -o request_test_folder/postman_environment.json.gpg request_test_folder/postman_environment.json
-          fi
-        continue-on-error: true
+          gpg --batch --passphrase trapla@123@plavo@TESTautomation2323 --symmetric --cipher-algo AES256 -o request_test_folder/postman_environment.json.gpg request_test_folder/postman_environment.json
 
-      - name: Commit and Push
-        if: steps.check-changes.outputs.changes == 'true'
+      - name: Verify Encrypted File
+        run: |
+          ls request_test_folder 
+
+      - name: Commit and Push Encrypted File
         run: |
           git config --local user.email "bassey@walter-group.com"
           git config --local user.name "EkeminiBassey1"
-          git add .
-          git commit -m "Encrypt and commit changes"
+          git add request_test_folder/postman_environment.json.gpg
+          git commit -m "Encrypt postman_environment.json file"
           git push origin test

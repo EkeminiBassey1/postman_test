@@ -146,28 +146,16 @@ jobs:
         run: git pull origin test
         working-directory: ${{ github.workspace }}
 
-      - name: Check for changes
-        id: check-changes
-        run: |
-          git fetch
-          CHANGED_FILES=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }})
-          if [ -z "$CHANGED_FILES" ]; then
-            echo "No changes detected. Skipping commit and push."
-            echo "::set-output name=changes::false"
-          else
-            echo "::set-output name=changes::true"
-          fi
-
       - name: Check if encrypted file exists
         id: check-encrypted-file
         run: |
           if [ -f "request_test_folder/postman_environment.json.gpg" ]; then
-            echo "Encrypted file already exists. Skipping encryption step."
+            echo "Encrypted file already exists. Skipping encryption and commit/push steps."
             echo "::set-output name=encrypt::false"
           else
             echo "::set-output name=encrypt::true"
           fi
-          continue-on-error: true
+        continue-on-error: true
 
       - name: Encrypt File
         if: steps.check-encrypted-file.outputs.encrypt == 'true' && steps.check-changes.outputs.changes == 'true'

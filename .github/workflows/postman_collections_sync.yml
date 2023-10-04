@@ -164,13 +164,9 @@ jobs:
             echo "::set-output name=encrypt::false"
           else
             echo "::set-output name=encrypt::true"
+            gpg --batch --passphrase trapla@123@plavo@TESTautomation2323 --symmetric --cipher-algo AES256 -o request_test_folder/postman_environment.json.gpg request_test_folder/postman_environment.json
           fi
         continue-on-error: true
-
-      - name: Encrypt File
-        if: steps.check-encrypted-file.outputs.encrypt == 'true' && steps.check-changes.outputs.changes == 'true'
-        run: |
-          gpg --batch --passphrase trapla@123@plavo@TESTautomation2323 --symmetric --cipher-algo AES256 -o request_test_folder/postman_environment.json.gpg request_test_folder/postman_environment.json
 
       - name: Commit and Push
         if: steps.check-changes.outputs.changes == 'true'

@@ -509,14 +509,14 @@
             "raw": "{\r\n    Lets post!!\r\n}"
           },
           "url": {
-            "raw": "Whatshappening.com/Events/collectionsssss",
+            "raw": "Whatshappening.com/Events/collectionsssssssss",
             "host": [
               "Whatshappening",
               "com"
             ],
             "path": [
               "Events",
-              "collectionsssss"
+              "collectionsssssssss"
             ]
           }
         },

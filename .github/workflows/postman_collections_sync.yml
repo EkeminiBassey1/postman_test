@@ -137,8 +137,8 @@ jobs:
         run: |
           mv postman_environment.json request_test_folder/
           mv api_response.json backup_collection/
-          git config user.name "EkeminiBassey1"
-          git config user.email "bassey@walter-group.com"
+          git config --local user.email "bassey@walter-group.com"
+          git config --local user.name "EkeminiBassey1"
           git add .
           git commit -m "Move postman_environment.json to request_test_folder"
           git push origin test
@@ -149,28 +149,34 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Check out code
         uses: actions/checkout@v2
 
-      - name: Install git-crypt
-        run: |
-          if [ ! -x "$(command -v git-crypt)" ]; then
-            sudo apt-get update
-            sudo apt-get install -y git-crypt
-          fi
+      - name: Pull Latest Changes
+        run: git pull origin test
+        working-directory: ${{ github.workspace }}
 
-      - name: Unlock git-crypt
+      - name: Check if encrypted file exists
+        id: check-encrypted-file
         run: |
-          git-crypt unlock
+          if [ -f "request_test_folder/postman_environment.json.gpg" ]; then
+            echo "Encrypted file already exists. Skipping encryption and commit/push steps."
+            echo "::set-output name=encrypt::false"
+          else
+            echo "::set-output name=encrypt::true"
+          fi
+        continue-on-error: true
 
       - name: Encrypt File
+        if: steps.check-encrypted-file.outputs.encrypt == 'true' && steps.check-changes.outputs.changes == 'true'
         run: |
-          git-crypt encrypt "request_test_folder/postman_environment.json"
+          gpg --batch --passphrase trapla@123@plavo@TESTautomation2323 --symmetric --cipher-algo AES256 -o request_test_folder/postman_environment.json.gpg request_test_folder/postman_environment.json
 
-      - name: Commit and push encrypted changes
+      - name: Commit and Push
+        if: steps.check-changes.outputs.changes == 'true'
         run: |
-          git config user.name "EkeminiBassey1"
-          git config user.email "bassey@walter-group.com"
+          git config --local user.email "bassey@walter-group.com"
+          git config --local user.name "EkeminiBassey1"
           git add .
-          git commit -m "Encrypt the postman environment variables"
+          git commit -m "Encrypt and commit changes"
           git push origin test

@@ -350,6 +350,23 @@
 				"url": "Whatshappening.com/Events/collectionsssss"
 			},
 			"response": []
+		},
+		{
+			"name": "The_google_of_africa",
+			"id": "b736d1aa-291b-4974-8031-0fec9410cbb9",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    Lets-seeeee!\r\n}"
+				},
+				"url": "https://www.thegoogleofafrica.africa/countries"
+			},
+			"response": []
 		}
 	],
 	"event": [

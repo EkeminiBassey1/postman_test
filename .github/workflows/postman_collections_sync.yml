@@ -192,6 +192,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Pull Latest Changes
+        run: git pull origin test
+        working-directory: ${{ github.workspace }}
+
       - name: Remove File
         run: |
           rm -f request_test_folder/postman_environment.json

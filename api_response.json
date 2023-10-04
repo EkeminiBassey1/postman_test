@@ -537,7 +537,7 @@
             "raw": "{\r\n    Lets-seeeee!\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n}"
           },
           "url": {
-            "raw": "https://www.thegoogleofafrica.africa/countries/nigeria",
+            "raw": "https://www.thegoogleofafrica.africa/countries/nigeria/akwa-ibom-state",
             "protocol": "https",
             "host": [
               "www",
@@ -546,7 +546,8 @@
             ],
             "path": [
               "countries",
-              "nigeria"
+              "nigeria",
+              "akwa-ibom-state"
             ]
           }
         },

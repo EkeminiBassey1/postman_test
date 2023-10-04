@@ -537,7 +537,7 @@
             "raw": "{\r\n    Lets-seeeee!\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n}"
           },
           "url": {
-            "raw": "https://www.thegoogleofafrica.africa/countries/nigeria/akwa-ibom-state/eket/bassey-street",
+            "raw": "https://www.thegoogleofafrica.africa/countries/nigeria/akwa-ibom-state/eket/bassey-street/nr-10",
             "protocol": "https",
             "host": [
               "www",
@@ -549,7 +549,8 @@
               "nigeria",
               "akwa-ibom-state",
               "eket",
-              "bassey-street"
+              "bassey-street",
+              "nr-10"
             ]
           }
         },

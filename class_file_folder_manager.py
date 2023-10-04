@@ -1,11 +1,15 @@
 import json
 import os
+import postman_collections as file_collection
+import importlib
 
 
 class FolderAndFileManager:
     def get_api_request_file(self):
-        #data = importlib.resources.read_text()
-        with open("backup_collection/collection_sync.json", 'r') as file:
+        data = json.load(importlib.resources.read_text(file_collection, "collection_sync.json"))
+        print(data)
+
+        with open("postman_collections/collection_sync.json", 'r') as file:
             json_content = json.load(file)
         return json_content
 

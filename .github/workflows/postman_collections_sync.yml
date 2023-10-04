@@ -162,13 +162,9 @@ jobs:
       - name: Unlock git-crypt
         run: |
           git-crypt unlock
-          git add .gitattributes
-          git commit -m "Specify files to be encrypted"
-          git push origin test
 
       - name: Encrypt File
         run: |
-          git-crypt status
           git-crypt encrypt "request_test_folder/postman_environment.json"
 
       - name: Commit and push encrypted changes

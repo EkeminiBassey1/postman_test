@@ -197,6 +197,6 @@ jobs:
           
           git config --local user.email "bassey@walter-group.com"
           git config --local user.name "EkeminiBassey1"
-          git add request_test_folder/postman_environment.json
-          git commit -m "Remove raw postman_environment file"
+          git add .
+          git commit -m "Remove raw postman environment variable file"
           git push origin test

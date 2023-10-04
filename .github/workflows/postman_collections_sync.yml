@@ -63,7 +63,17 @@ jobs:
         run: |
           if [ ! -d "request_test_folder" ]; then
             mkdir -p request_test_folder
-            touch request_test_folder/.gitkeep  # Create a placeholder file if needed
+            touch request_test_folder/.gitkeep
+          else
+            echo "Folder already exists, skipping creation."
+          fi
+        working-directory: ${{ github.workspace }}
+
+      - name: Create Folder (if it doesn't exist)
+        run: |
+          if [ ! -d "backup_collection" ]; then
+            mkdir -p backup_collection
+            touch backup_collection/.gitkeep 
           else
             echo "Folder already exists, skipping creation."
           fi
@@ -75,8 +85,8 @@ jobs:
           git config user.email "actions@github.com"
           if [[ -n $(git status -s) ]]; then
             git add .
-            git commit -m "Create request_test_folder"
-            git push origin test  # Replace 'test' with your branch name
+            git commit -m "Create request test & backup collection folders"
+            git push origin test
           else
             echo "No changes to commit, skipping."
           fi

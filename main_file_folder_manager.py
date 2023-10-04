@@ -4,6 +4,8 @@ folder_file_manager = FolderAndFileManager()
 
 data_dict = folder_file_manager.get_api_request_file()
 
-for item in data_dict['collection']['item']:
+print(data_dict['item'])
+
+for item in data_dict['item']:
     file_name = str(item['id']) + ".json"
     folder_file_manager.write_into_file(file_name, item)

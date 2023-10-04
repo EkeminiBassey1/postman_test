@@ -4,7 +4,7 @@
       "_postman_id": "78dd1021-0e04-4df1-949e-7f8276e9fc1a",
       "name": "Requests_test",
       "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-      "updatedAt": "2023-10-04T06:59:26.000Z",
+      "updatedAt": "2023-10-04T08:05:56.000Z",
       "uid": "28491137-78dd1021-0e04-4df1-949e-7f8276e9fc1a"
     },
     "item": [
@@ -494,6 +494,34 @@
         },
         "response": [],
         "uid": "28491137-23d4211b-f776-493f-bc39-13008c51b341"
+      },
+      {
+        "name": "Whatshappening.com/Events/collectoin",
+        "id": "8053663b-9ad2-4eca-ad58-fe711f2088b4",
+        "protocolProfileBehavior": {
+          "disableBodyPruning": true
+        },
+        "request": {
+          "method": "GET",
+          "header": [],
+          "body": {
+            "mode": "raw",
+            "raw": "{\r\n    Lets post!!\r\n}"
+          },
+          "url": {
+            "raw": "Whatshappening.com/Events/collectoin",
+            "host": [
+              "Whatshappening",
+              "com"
+            ],
+            "path": [
+              "Events",
+              "collectoin"
+            ]
+          }
+        },
+        "response": [],
+        "uid": "28491137-8053663b-9ad2-4eca-ad58-fe711f2088b4"
       }
     ],
     "event": [

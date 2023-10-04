@@ -13,17 +13,37 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
       - name: Download Postman Collection and Environment Variables
+        id: download-files
         run: |
           POSTMAN_API_KEY=${{ secrets.POSTMAN_API_KEY_TEST }}
           POSTMAN_API_KEY_ENV=${{ secrets.POSTMAN_API_KEY_TEST_ENV_VAR }}
           COLLECTION_ID=${{ secrets.COLLECTION_ID_TEST }}
-          POSTMAN_ENVIRONMENT_ID=${{ secrets.POSTMAN_ENVIRONMENT_ID_TEST }} 
-
+          POSTMAN_ENVIRONMENT_ID=${{ secrets.POSTMAN_ENVIRONMENT_ID_TEST }}
+          
           curl -L "https://api.postman.com/collections/$COLLECTION_ID?access_key=$POSTMAN_API_KEY" -o api_response.json
           curl -X GET "https://api.postman.com/environments/$POSTMAN_ENVIRONMENT_ID" \
             -H "X-Api-Key: $POSTMAN_API_KEY_ENV" \
             -o postman_environment.json
+
+          new_hash_api_response=$(md5sum api_response.json | awk '{print $1}')
+          new_hash_environment=$(md5sum postman_environment.json | awk '{print $1}')
+
+          previous_hash_api_response=$(cat previous_hash_api_response.txt 2>/dev/null || echo "")
+          previous_hash_environment=$(cat previous_hash_environment.txt 2>/dev/null || echo "")
+
+          if [ "$new_hash_api_response" != "$previous_hash_api_response" ] || [ "$new_hash_environment" != "$previous_hash_environment" ]; then
+            echo "Downloaded file(s) have changed. Proceeding with commit and push."
+            echo "$new_hash_api_response" > previous_hash_api_response.txt
+            echo "$new_hash_environment" > previous_hash_environment.txt
+          else
+            echo "Downloaded file(s) have not changed. Skipping commit and push."
+            exit 0
+          fi
 
       - name: Format Api Response JSON
         run: |
@@ -37,13 +57,12 @@ jobs:
 
       - name: Commit and push JSON file
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add api_response.json
-          git add postman_environment.json
+          git config --local user.email "bassey@walter-grou.com"
+          git config --local user.name "EkeminiBassey1"
+          git add api_response.json postman_environment.json previous_hash_api_response.txt previous_hash_environment.txt
           git commit -m "Add API response JSON"
           git pull
-          git push
+          git push origin
         env:
           GH_PAT: ${{ secrets.GH_PAT }}
 

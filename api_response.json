@@ -534,10 +534,10 @@
           "header": [],
           "body": {
             "mode": "raw",
-            "raw": "{\r\n    Lets-seeeee!\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n}"
+            "raw": "{\r\n    Lets-seeeee!\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n}"
           },
           "url": {
-            "raw": "https://www.thegoogleofafrica.africa/countries",
+            "raw": "https://www.thegoogleofafrica.africa/countries/nigeria",
             "protocol": "https",
             "host": [
               "www",
@@ -545,7 +545,8 @@
               "africa"
             ],
             "path": [
-              "countries"
+              "countries",
+              "nigeria"
             ]
           }
         },

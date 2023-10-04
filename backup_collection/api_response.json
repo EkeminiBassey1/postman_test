@@ -537,7 +537,7 @@
             "raw": "{\r\n    Lets-seeeee!\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n}"
           },
           "url": {
-            "raw": "https://www.thegoogleofafrica.africa/countries/nigeria/akwa-ibom-state/eket/bassey-street/nr-10/second-floor",
+            "raw": "https://www.thegoogleofafrica.africa/countries/nigeria/akwa-ibom-state/eket/bassey-street/nr-10/second-floor/fisrt_door",
             "protocol": "https",
             "host": [
               "www",
@@ -551,7 +551,8 @@
               "eket",
               "bassey-street",
               "nr-10",
-              "second-floor"
+              "second-floor",
+              "fisrt_door"
             ]
           }
         },

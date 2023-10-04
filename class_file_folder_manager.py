@@ -4,7 +4,8 @@ import os
 
 class FolderAndFileManager:
     def get_api_request_file(self):
-        with open("api_response.json", 'r') as file:
+        #data = importlib.resources.read_text()
+        with open("collection_sync.json", 'r') as file:
             json_content = json.load(file)
         return json_content
 

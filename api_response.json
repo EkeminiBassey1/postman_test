@@ -4,7 +4,7 @@
       "_postman_id": "78dd1021-0e04-4df1-949e-7f8276e9fc1a",
       "name": "Requests_test",
       "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-      "updatedAt": "2023-10-03T14:49:14.000Z",
+      "updatedAt": "2023-10-04T06:59:26.000Z",
       "uid": "28491137-78dd1021-0e04-4df1-949e-7f8276e9fc1a"
     },
     "item": [
@@ -460,7 +460,7 @@
           "header": [],
           "body": {
             "mode": "raw",
-            "raw": "{\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n}"
+            "raw": "{\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n    {{example_text}}\r\n}"
           },
           "url": {
             "raw": "sadfnmsssssssssssss",
@@ -500,35 +500,9 @@
       {
         "listen": "prerequest",
         "script": {
-          "id": "1727baae-7a85-47ec-8728-caa99c229426",
+          "id": "a7572c5b-da47-46f7-8d42-b45cddaeb8ea",
           "type": "text/javascript",
           "exec": [
-            "const githubWebhookURL = \"https://api.github.com/repos/EkeminiBassey1/postman_test/dispatches\";",
-            "",
-            "const payload = {",
-            "  event_type: \"collection-merged\"",
-            "};",
-            "",
-            "const headers = {",
-            "  \"Content-Type\": \"application/json\",",
-            "  Authorization: `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`",
-            "};",
-            "",
-            "pm.sendRequest({",
-            "  url: githubWebhookURL,",
-            "  method: 'POST',",
-            "  header: headers,",
-            "  body: {",
-            "    mode: 'raw',",
-            "    raw: JSON.stringify(payload)",
-            "  }",
-            "}, (error, response) => {",
-            "  if (error) {",
-            "    console.error('Error sending request:', error);",
-            "  } else {",
-            "    console.log('GitHub Actions workflow triggered:', response.text());",
-            "  }",
-            "});",
             ""
           ]
         }
@@ -536,7 +510,7 @@
       {
         "listen": "test",
         "script": {
-          "id": "d627e23a-3489-48ac-b62d-b0976c99f47e",
+          "id": "51c60312-7761-4e03-adc2-49d8920bb577",
           "type": "text/javascript",
           "exec": [
             ""

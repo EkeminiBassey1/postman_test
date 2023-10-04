@@ -149,38 +149,29 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check out code
+      - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Pull Latest Changes
-        run: git pull origin test
-        working-directory: ${{ github.workspace }}
-
-      - name: Check if encrypted file exists
-        id: check-encrypted-file
+      - name: Install git-crypt
         run: |
-          if [ -f "request_test_folder/postman_environment.json.gpg" ]; then
-            echo "Encrypted file already exists. Skipping encryption and commit/push steps."
-            echo "::set-output name=encrypt::false"
-          else
-            echo "::set-output name=encrypt::true"
+          # Install git-crypt if not already installed
+          if [ ! -x "$(command -v git-crypt)" ]; then
+            sudo apt-get update
+            sudo apt-get install -y git-crypt
           fi
-        continue-on-error: true
 
-      - name: Encrypt File with git-crypt
-        if: steps.check-encrypted-file.outputs.encrypt == 'true' && steps.check-changes.outputs.changes == 'true'
+      - name: Unlock git-crypt
         run: |
           git-crypt unlock
-          
-          git-crypt encrypt request_test_folder/postman_environment.json
-        env:
-          GITCRYPT_GPG_USE_AGENT: no
 
-      - name: Commit and Push
-        if: steps.check-changes.outputs.changes == 'true'
+      - name: Encrypt File
         run: |
-          git config --local user.email "bassey@walter-group.com"
-          git config --local user.name "EkeminiBassey1"
+          git-crypt encrypt "request_test_folder/postman_environment.json"
+
+      - name: Commit and push encrypted changes
+        run: |
+          git config user.name "EkeminiBassey1"
+          git config user.email "bassey@walter-group.com"
           git add .
-          git commit -m "Encrypt and commit changes"
-          git push origin maintest
+          git commit -m "Encrypt the postman environment variables"
+          git push origin test

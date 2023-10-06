@@ -177,7 +177,7 @@
 					"mode": "raw",
 					"raw": "test"
 				},
-				"url": "http://kafka-connect.prod.lkw-walter.com/connectors/dataops-aggtier_v5/config/this_is_the_test_branch"
+				"url": "http://kafka-connect.prod.lkw-walter.com/connectors/dataops-aggtier_v5/config/this_is_the_test_branchkkk"
 			},
 			"response": []
 		},

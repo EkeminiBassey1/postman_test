@@ -168,7 +168,7 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add request_test_folder/postman_environment.json.gpg
+          git add .
           git commit -m "Encrypt postman_environment.json file"
           git push
 

@@ -20,15 +20,9 @@ jobs:
           COLLECTION_ID=${{ secrets.COLLECTION_ID_TEST }}
           POSTMAN_ENVIRONMENT_ID=${{ secrets.POSTMAN_ENVIRONMENT_ID_TEST }} 
 
-          curl -L "https://api.postman.com/collections/$COLLECTION_ID?access_key=$POSTMAN_API_KEY" -o api_response.json
           curl -X GET "https://api.postman.com/environments/$POSTMAN_ENVIRONMENT_ID" \
             -H "X-Api-Key: $POSTMAN_API_KEY_ENV" \
             -o postman_environment.json
-
-      - name: Format Api Response JSON
-        run: |
-          jq . api_response.json > formatted_api_response.json
-          mv formatted_api_response.json api_response.json
 
       - name: Format Postman Environment JSON
         run: |
@@ -39,7 +33,7 @@ jobs:
         run: |
           git config --local user.email "bassey@walter-group.com"
           git config --local user.name "EkeminiBassey1"
-          git add api_response.json postman_environment.json
+          git add postman_environment.json
           git commit -m "Add API response JSON"
           git pull
           git push
@@ -63,16 +57,6 @@ jobs:
           if [ ! -d "request_test_folder" ]; then
             mkdir -p request_test_folder
             touch request_test_folder/.gitkeep
-          else
-            echo "Folder already exists, skipping creation."
-          fi
-        working-directory: ${{ github.workspace }}
-
-      - name: Create Folder (if it doesn't exist)
-        run: |
-          if [ ! -d "backup_collection" ]; then
-            mkdir -p backup_collection
-            touch backup_collection/.gitkeep 
           else
             echo "Folder already exists, skipping creation."
           fi

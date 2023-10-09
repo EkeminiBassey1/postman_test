@@ -21,11 +21,10 @@ jobs:
         run: |
           POSTMAN_API_KEY=${{ secrets.POSTMAN_API_KEY_TEST }}
           POSTMAN_API_KEY_ENV=${{ secrets.POSTMAN_API_KEY_TEST_ENV_VAR }}
-          COLLECTION_ID=${{ secrets.COLLECTION_ID_TEST }}
           POSTMAN_ENVIRONMENT_ID=${{ secrets.POSTMAN_ENVIRONMENT_ID_TEST }} 
 
-          curl -X GET "https://api.postman.com/environments/$POSTMAN_ENVIRONMENT_ID" \
-            -H "X-Api-Key: $POSTMAN_API_KEY_ENV" \
+          curl -X GET "https://api.postman.com/environments/28491137-bdc5c0fc-6901-4793-8b43-d4d9d46c0c4c" \
+            -H "X-Api-Key: PMAK-651fe9a85602e71168324129-5f2411e993eb7040d4a5e10d00671c8312" \
             -o postman_environment.json
 
       - name: Format Postman Environment JSON

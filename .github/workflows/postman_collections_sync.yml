@@ -17,38 +17,28 @@ jobs:
         run: git pull origin test
         working-directory: ${{ github.workspace }}
 
-      - name: Download Postman Collection and Environment Variables
-        run: |
-          POSTMAN_API_KEY=${{ secrets.POSTMAN_API_KEY_TEST }}
-          POSTMAN_API_KEY_ENV=${{ secrets.POSTMAN_API_KEY_TEST_ENV_VAR }}
-          POSTMAN_ENVIRONMENT_ID=${{ secrets.POSTMAN_ENVIRONMENT_ID_TEST }} 
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
 
-          curl -X GET "https://api.postman.com/environments/28491137-bdc5c0fc-6901-4793-8b43-d4d9d46c0c4c" \
-            -H "X-Api-Key: PMAK-651fe9a85602e71168324129-5f2411e993eb7040d4a5e10d00671c8312" \
-            -o postman_environment.json
-
-      - name: Format Postman Environment JSON
+      - name: Execute Python Script
+        env:
+          POSTMAN_API_KEY: ${{ secrets.POSTMAN_API_COLLECTION_KEY_TEST }}
+          POSTMAN_API_KEY_ENV: ${{ secrets.POSTMAN_API_ENV_KEY }}
+          POSTMAN_ENVIRONMENT_ID: ${{ secrets.POSTMAN_API_ENVIRONMENT_COLLECTION_ID }}
+          ENCRYPTION_KEY: ${{ secrets.ENCRYPTION_PASSPHRASE }}
         run: |
-          jq . postman_environment.json > formatted_postman_environment.json
-          mv formatted_postman_environment.json postman_environment.json
-
-      - name: Check if changes exist in the JSON file
-        id: check-changes
-        run: |
-          if git diff --quiet postman_environment.json; then
-            echo "No changes in postman_environment.json. Skipping commit and push."
-            echo "::set-output name=changes::false"
-          else
-            echo "::set-output name=changes::true"
-          fi
+          python download_postman_env_var.py
+        working-directory: ${{ github.workspace }}
 
       - name: Commit and push JSON file
         if: steps.check-changes.outputs.changes == 'true'
         run: |
           git config --local user.email "bassey@walter-group.com"
           git config --local user.name "EkeminiBassey1"
-          git add postman_environment.json
-          git commit -m "Add API response JSON"
+          git add .
+          git commit -m "Postman environmental variables downloaded successfully"
           git push origin test
 
   create-folder:
@@ -137,34 +127,6 @@ jobs:
           git commit -m "Move postman_environment.json to request_test_folder"
           git push origin test
         working-directory: ${{ github.workspace }}
-
-  encrypt:
-    needs: move_file
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Check out code
-        uses: actions/checkout@v2
-
-      - name: Pull Latest Changes
-        run: git pull origin test
-        working-directory: ${{ github.workspace }}
-
-      - name: Encrypt File
-        run: |
-          gpg --batch --passphrase trapla@123@plavo@TESTautomation2323 --symmetric --cipher-algo AES256 -o request_test_folder/postman_environment.json.gpg request_test_folder/postman_environment.json
-
-      - name: Verify Encrypted File
-        run: |
-          ls request_test_folder 
-
-      - name: Commit and Push Encrypted File
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add .
-          git commit -m "Encrypt postman_environment.json file"
-          git push
 
   delete-file:
     needs: encrypt

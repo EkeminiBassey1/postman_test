@@ -13,6 +13,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Pull Latest Changes
+        run: git pull origin test
+        working-directory: ${{ github.workspace }}
+
       - name: Download Postman Collection and Environment Variables
         run: |
           POSTMAN_API_KEY=${{ secrets.POSTMAN_API_KEY_TEST }}
@@ -40,15 +44,13 @@ jobs:
           fi
 
       - name: Commit and push JSON file
+        if: steps.check-changes.outputs.changes == 'true'
         run: |
           git config --local user.email "bassey@walter-group.com"
           git config --local user.name "EkeminiBassey1"
           git add postman_environment.json
           git commit -m "Add API response JSON"
-          git pull
-          git push
-        env:
-          GH_PAT: ${{ secrets.GH_PAT }}
+          git push origin test
 
   create-folder:
     needs: download-collection-postman

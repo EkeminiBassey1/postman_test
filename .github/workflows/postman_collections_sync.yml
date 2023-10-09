@@ -29,6 +29,16 @@ jobs:
           jq . postman_environment.json > formatted_postman_environment.json
           mv formatted_postman_environment.json postman_environment.json
 
+      - name: Check if changes exist in the JSON file
+        id: check-changes
+        run: |
+          if git diff --quiet postman_environment.json; then
+            echo "No changes in postman_environment.json. Skipping commit and push."
+            echo "::set-output name=changes::false"
+          else
+            echo "::set-output name=changes::true"
+          fi
+
       - name: Commit and push JSON file
         run: |
           git config --local user.email "bassey@walter-group.com"

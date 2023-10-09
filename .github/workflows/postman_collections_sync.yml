@@ -132,7 +132,6 @@ jobs:
       - name: Move File
         run: |
           mv postman_environment.json request_test_folder/
-          mv api_response.json backup_collection/
           git config --local user.email "bassey@walter-group.com"
           git config --local user.name "EkeminiBassey1"
           git add .
